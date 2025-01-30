@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/kegiatan/{kegiatan}', [])->name('');
 // nanda
 
+
+
+
+
 // septa
 
 // rofi
