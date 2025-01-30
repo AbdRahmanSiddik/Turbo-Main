@@ -99,58 +99,27 @@
                 <!-- END: Second Child -->
             </li>
             <li class="side-menu__divider">
-                UI WIDGETS
+                USERS MANAGEMENT
             </li>
             <li>
-                <a href="razor-creative.html" class="side-menu__link ">
-                    <i data-tw-merge="" data-lucide="album" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                    <div class="side-menu__link__title">Creative</div>
-                </a>
-                <!-- BEGIN: Second Child -->
-                <!-- END: Second Child -->
-            </li>
-            <li>
-                <a href="razor-dynamic.html" class="side-menu__link ">
-                    <i data-tw-merge="" data-lucide="activity-square"
-                        class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                    <div class="side-menu__link__title">Dynamic</div>
-                </a>
-                <!-- BEGIN: Second Child -->
-                <!-- END: Second Child -->
-            </li>
-            <li>
-                <a href="razor-interactive.html" class="side-menu__link ">
-                    <i data-tw-merge="" data-lucide="keyboard" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                    <div class="side-menu__link__title">Interactive</div>
-                </a>
-                <!-- BEGIN: Second Child -->
-                <!-- END: Second Child -->
-            </li>
-            <li class="side-menu__divider">
-                USER MANAGEMENT
-            </li>
-            <li>
-                <a href="razor-users.html" class="side-menu__link ">
-                    <i data-tw-merge="" data-lucide="user-square"
-                        class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                <a href="/users" class="side-menu__link ">
+                    <i data-tw-merge="" data-lucide="user-square" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
                     <div class="side-menu__link__title">Users</div>
                 </a>
                 <!-- BEGIN: Second Child -->
                 <!-- END: Second Child -->
             </li>
             <li>
-                <a href="razor-departments.html" class="side-menu__link ">
-                    <i data-tw-merge="" data-lucide="cake-slice"
-                        class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                    <div class="side-menu__link__title">Departments</div>
+                <a href="/permissions" class="side-menu__link ">
+                    <i data-tw-merge="" data-lucide="cake-slice" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                    <div class="side-menu__link__title">Permissions</div>
                 </a>
                 <!-- BEGIN: Second Child -->
                 <!-- END: Second Child -->
             </li>
             <li>
                 <a href="razor-add-user.html" class="side-menu__link ">
-                    <i data-tw-merge="" data-lucide="package-plus"
-                        class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                    <i data-tw-merge="" data-lucide="package-plus" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
                     <div class="side-menu__link__title">Add User</div>
                 </a>
                 <!-- BEGIN: Second Child -->
@@ -161,8 +130,7 @@
             </li>
             <li>
                 <a href="razor-profile-overview.html" class="side-menu__link ">
-                    <i data-tw-merge="" data-lucide="presentation"
-                        class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                    <i data-tw-merge="" data-lucide="presentation" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
                     <div class="side-menu__link__title">Profile Overview</div>
                 </a>
                 <!-- BEGIN: Second Child -->
