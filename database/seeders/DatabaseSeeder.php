@@ -35,8 +35,16 @@ class DatabaseSeeder extends Seeder
                 'password' => bcrypt('123'),
             ]
         );
-
+        $users3 = User::create(
+            [
+                'name' => 'muqtafi',
+                'email' => 'muqtafi@gmail.com',
+                'password' => bcrypt('123'),
+            ]
+        );
+        
         $users->assignRole('admin');
+        $users3->assignRole('admin');
         $users2->assignRole('peserta');
     }
 }

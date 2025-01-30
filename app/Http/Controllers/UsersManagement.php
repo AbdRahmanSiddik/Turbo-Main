@@ -9,8 +9,6 @@ class UsersManagement extends Controller
 {
     public function users()
     {
-
-
         return view('admin.users_management.users.page');
     }
 

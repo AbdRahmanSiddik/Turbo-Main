@@ -33,3 +33,7 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
 // septa
 
 // rofi
+
+// muqtafi
+
+
