@@ -11,6 +11,10 @@ Route::get('/', function () {
 Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan.index');
 // nanda
 
+
+
+
+
 // septa
 
 // rofi
