@@ -9,7 +9,7 @@ class KegiatanController extends Controller
 {
     public function index()
     {
-        //
+        return view('admin.kegiatan.kegiatan-view');
     }
 
     public function create()
@@ -35,7 +35,7 @@ class KegiatanController extends Controller
     public function update(Request $request, Kegiatan $kegiatan)
     {
         // Kegiatan::where('id', '')->update(['kolom' => 'isinya']);
-        
+
     }
 
     public function destroy(Kegiatan $kegiatan)
