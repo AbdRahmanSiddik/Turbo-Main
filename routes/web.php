@@ -4,6 +4,7 @@ use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UsersManagement;
+use App\Http\Controllers\RolePermissionController;
 
 // rafi
 // nanda
@@ -15,22 +16,16 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 });
 
-
 // start nanda
 Route::middleware(['auth', 'role_permission'])->group(function () {
     Route::get('dashboard', function () {
         return view('admin.dashboard.dashboard-view');
     })->name('dashboard');
 
-    Route::get('/users', [UsersManagement::class, 'users']);
-    Route::get('/roles', [UsersManagement::class, 'roles']);
-    Route::post('/roles', [UsersManagement::class, 'storeRole']);
-    Route::put('/roles/{role}', [UsersManagement::class, 'updateRole']);
-    Route::delete('/roles/{role}', [UsersManagement::class, 'deleteRole']);
-    Route::get('/permissions', [UsersManagement::class, 'permissions']);
-    Route::post('/permissions', [UsersManagement::class, 'storePermission']);
-    Route::put('/permissions/{permission}', [UsersManagement::class, 'updatePermission']);
-    Route::delete('/permissions/{permission}', [UsersManagement::class, 'deletePermission']);
+    Route::get('roles', [UsersManagement::class, 'index'])->name('roles.index');
+    Route::post('roles/store', [UsersManagement::class, 'store'])->name('roles.store');
+    Route::post('roles/update/{id}', [UsersManagement::class, 'update'])->name('roles.update');
+    Route::delete('roles/destroy/{id}', [UsersManagement::class, 'destroy'])->name('roles.destroy');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
@@ -41,5 +36,3 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
 // rofi
 
 // muqtafi
-
-

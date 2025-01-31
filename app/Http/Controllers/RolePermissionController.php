@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use PDO;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
-class UsersManagement extends Controller
+class RolePermissionController extends Controller
 {
-
     public function index()
     {
         $roles = Role::all();
         $permissions = Permission::all();
-        return view('admin.users_management.users.page', compact('roles', 'permissions'));
+        return view('roles.index', compact('roles', 'permissions'));
     }
 
     public function store(Request $request)

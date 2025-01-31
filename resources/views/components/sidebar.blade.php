@@ -105,9 +105,9 @@
                 USERS MANAGEMENT
             </li>
             <li>
-                <a href="/users" class="side-menu__link ">
+                <a href="/roles" class="side-menu__link ">
                     <i data-tw-merge="" data-lucide="user-square" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                    <div class="side-menu__link__title">Users</div>
+                    <div class="side-menu__link__title">Roles</div>
                 </a>
                 <!-- BEGIN: Second Child -->
                 <!-- END: Second Child -->
