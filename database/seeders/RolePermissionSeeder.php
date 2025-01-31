@@ -37,6 +37,6 @@ class RolePermissionSeeder extends Seeder
         $admin->givePermissionTo(['view dashboard', 'manage users', 'manage courses', 'approve enrollments']);
         $mentor->givePermissionTo(['view dashboard', 'manage courses']);
         $operator->givePermissionTo(['view dashboard', 'approve enrollments']);
-        $peserta->givePermissionTo(['view dashboard', 'enroll course']);
+        $peserta->givePermissionTo(['enroll course']);
     }
 }

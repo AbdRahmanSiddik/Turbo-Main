@@ -16,9 +16,5 @@
 <script src="{{ asset('assets') }}/dist/js/vendors/tabulator.js"></script>
 <script src="{{ asset('assets') }}/dist/js/vendors/lodash.js"></script>
 <script src="{{ asset('assets') }}/dist/js/vendors/xlsx.js"></script>
-<script src="https://cdn.datatables.net/v/dt/dt-2.2.1/datatables.min.js"></script>
 
 
-<script>
-    let table = new DataTable('#myTable');
-</script>

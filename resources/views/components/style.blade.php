@@ -3,5 +3,11 @@
 <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/themes/razor.css">
 <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/app.css">
 <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/vendors/tabulator.css">
-<link href="https://cdn.datatables.net/v/dt/dt-2.2.1/datatables.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<!-- Link TailwindCSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Link jQuery dan DataTables CSS/JS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

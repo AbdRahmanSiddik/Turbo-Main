@@ -38,8 +38,5 @@ class KegiatanController extends Controller
 
     }
 
-    public function destroy(Kegiatan $kegiatan)
-    {
-
-    }
+    public function destroy(Kegiatan $kegiatan) {}
 }

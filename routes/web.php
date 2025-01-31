@@ -23,8 +23,14 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
     })->name('dashboard');
 
     Route::get('/users', [UsersManagement::class, 'users']);
+    Route::get('/roles', [UsersManagement::class, 'roles']);
+    Route::post('/roles', [UsersManagement::class, 'storeRole']);
+    Route::put('/roles/{role}', [UsersManagement::class, 'updateRole']);
+    Route::delete('/roles/{role}', [UsersManagement::class, 'deleteRole']);
     Route::get('/permissions', [UsersManagement::class, 'permissions']);
-
+    Route::post('/permissions', [UsersManagement::class, 'storePermission']);
+    Route::put('/permissions/{permission}', [UsersManagement::class, 'updatePermission']);
+    Route::delete('/permissions/{permission}', [UsersManagement::class, 'deletePermission']);
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
