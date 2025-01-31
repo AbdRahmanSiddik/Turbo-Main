@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('teams', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_team');
+            $table->string('token_team', 16);
             $table->string('nama_team');
             $table->unsignedBigInteger('mentor_id');
             $table->text('deskripsi');
+            $table->string('avatar')->nullable();
             $table->foreign('mentor_id')->references('id')->on('users');
             $table->timestamps();
         });
