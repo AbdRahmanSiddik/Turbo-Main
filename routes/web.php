@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UsersManagement;
 use App\Http\Controllers\RolePermissionController;
+use App\Http\Controllers\TeamController;
 
 // rafi
 // nanda
@@ -36,3 +37,8 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
 // rofi
 
 // muqtafi
+Route::get('/team', [TeamController::class, 'index'])->name('team.index');
+Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
+Route::get('/team/update/{id}', [TeamController::class, 'update'])->name('team.update');
+Route::post('/team/destroy{id}', [TeamController::class, 'destroy'])->name('team.destroy');
+
