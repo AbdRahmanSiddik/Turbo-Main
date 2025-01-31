@@ -12,8 +12,12 @@ class UsersManagement extends Controller
 {
     public function users()
     {
+<<<<<<< HEAD
         $data = Role::all();
         return view('admin.users_management.users.page', compact('data'));
+=======
+        return view('admin.users_management.users.page');
+>>>>>>> bdd6433cdb8c672f8e4d246b6767ecca44397a2d
     }
 
     public function permissions()
