@@ -7,8 +7,12 @@
                 <a href="/">Dashboard</a>
             </li>
             <li
+                class="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white">
+                <a href="{{ route('kegiatan.index') }}">Kegiatan</a>
+            </li>
+            <li
                 class="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-600 cursor-text dark:text-slate-400">
-                <a href="#">Kegiatan</a>
+                <a href="#">{{ $title }}</a>
             </li>
         </ol>
     </nav>
@@ -17,130 +21,136 @@
 @section('content')
     <div class="grid grid-cols-12 gap-x-6 gap-y-10">
         <div class="col-span-12">
-            <div class="flex flex-col gap-y-3 md:h-10 md:flex-row md:items-center">
-                <div class="text-base font-medium group-[.mode--light]:text-white">
-                    Data Kegiatan
-                </div>
-                <div class="flex flex-col gap-x-3 gap-y-2 sm:flex-row md:ml-auto">
-                    <button data-tw-merge=""
-                        class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary group-[.mode--light]:!border-transparent group-[.mode--light]:!bg-white/[0.12] group-[.mode--light]:!text-slate-200">
-                        <i data-tw-merge="" data-lucide="pen-line" class="mr-2 h-4 w-4 stroke-[1.3]"></i>
-                        Add New Kegiatan
-                    </button>
+            <div class="flex h-10 items-center">
+                <div class="text-lg font-medium group-[.mode--light]:text-white">
+                    {{ $title }}
                 </div>
             </div>
-            <div class="mt-3.5 flex flex-col gap-8">
-                <div class="box box--stacked flex flex-col">
-                    <div class="overflow-auto xl:overflow-visible">
-                        <table id="myTable" class="w-full text-left border-b border-slate-200/60">
-                            <thead class="">
-                                <tr>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 w-5 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
-                                        No
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
-                                        Thumbnail
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
-                                        Judul Kegiatan
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
-                                        Tanggal Mulai
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
-                                        Tanggal Selesai
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 text-center font-medium text-slate-500">
-                                        Status
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 w-36 border-t border-slate-200/60 bg-slate-50 py-4 text-center font-medium text-slate-500">
-                                        Action
-                                    </td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="[&_td]:last:border-b-0">
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                                        1
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                                        <div class="flex">
-                                            <div class="image-fit zoom-in h-9 w-9">
-                                                <img src="{{ asset('assets') }}/dist/images/products/product4-400x400.jpg"
-                                                    alt="Product Image"
-                                                    class="tooltip cursor-pointer rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                                        <a class="whitespace-nowrap font-medium" href="#">8-Cup Coffee Maker</a>
-                                        <div class="mt-0.5 whitespace-nowrap text-xs text-slate-500">
-                                            /8-cup-coffee-maker
-                                        </div>
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                                        <div class="whitespace-nowrap">$39</div>
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                                        <div class="whitespace-nowrap">55</div>
-                                    </td>
-                                    <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                                        <div class="flex items-center justify-center text-success">
-                                            <i data-lucide="database" class="h-3.5 w-3.5 stroke-[1.7]"></i>
-                                            <div class="ml-1.5 whitespace-nowrap">Active</div>
-                                        </div>
-                                    </td>
-                                    <td data-tw-merge=""
-                                        class="px-5 border-b dark:border-darkmode-300 relative border-dashed py-4 dark:bg-darkmode-600">
-                                        <div class="flex items-center justify-center">
-                                            <div data-tw-merge="" data-tw-placement="bottom-end"
-                                                class="dropdown relative h-5">
-                                                <button data-tw-toggle="dropdown" aria-expanded="false"
-                                                    class="cursor-pointer h-5 w-5 text-slate-500">
-                                                    <i data-tw-merge="" data-lucide="more-vertical"
-                                                        class="stroke-[1] w-5 h-5 fill-slate-400/70 stroke-slate-400/70"></i>
-                                                </button>
-                                                <div data-transition="" data-selector=".show"
-                                                    data-enter="transition-all ease-linear duration-150"
-                                                    data-enter-from="absolute !mt-5 invisible opacity-0 translate-y-1"
-                                                    data-enter-to="!mt-1 visible opacity-100 translate-y-0"
-                                                    data-leave="transition-all ease-linear duration-150"
-                                                    data-leave-from="!mt-1 visible opacity-100 translate-y-0"
-                                                    data-leave-to="absolute !mt-5 invisible opacity-0 translate-y-1"
-                                                    class="dropdown-menu absolute z-[9999] hidden">
-                                                    <div data-tw-merge=""
-                                                        class="dropdown-content rounded-md border-transparent bg-white p-2 shadow-[0px_3px_10px_#00000017] dark:border-transparent dark:bg-darkmode-600 w-40">
-                                                        <a
-                                                            class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
-                                                                data-tw-merge="" data-lucide="check-square"
-                                                                class="stroke-[1] mr-2 h-4 w-4"></i>
-                                                            Edit</a>
-                                                        <a
-                                                            class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item text-danger"><i
-                                                                data-tw-merge="" data-lucide="trash2"
-                                                                class="stroke-[1] mr-2 h-4 w-4"></i>
-                                                            Delete</a>
-                                                    </div>
+            <div class="mt-3.5 grid grid-cols-12 gap-x-6 gap-y-10">
+                <div class="relative col-span-12 flex flex-col gap-y-7">
+                    <div class="box box--stacked flex flex-col p-5">
+                        <div class="preview-component">
+                            <div
+                                class="mb-5 flex flex-col border-b border-dashed border-slate-300/70 pb-5 sm:flex-row sm:items-center">
+                                <div class="text-[0.94rem] font-medium">
+                                    Form Tambah
+                                </div>
+                            </div>
+                            <div>
+                                <div
+                                    class="relative mb-4 mt-7 rounded-[0.6rem] border border-slate-200/80 dark:border-darkmode-400">
+                                    <div class="absolute left-0 -mt-2 ml-4 bg-white px-3 text-xs uppercase text-slate-500">
+                                        <div class="-mt-px">{{ $title }}</div>
+                                    </div>
+                                    <div class="mt-4 flex flex-col gap-3.5 px-5 py-2">
+                                        <div class="preview relative [&.hide]:overflow-hidden [&.hide]:h-0">
+                                            <!-- BEGIN: Validation Form -->
+                                            <form class="validate-form" action="" method="POST">
+                                                @csrf
+                                                <div class="input-form [&.has-error_.form-control]:border-danger">
+                                                    <label data-tw-merge="" for="nama_kegiatan"
+                                                        class="mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right flex w-full flex-col sm:flex-row">
+                                                        Judul Kegiatan
+                                                        <span class="mt-1 text-xs text-slate-500 sm:ml-auto sm:mt-0">
+                                                            Required
+                                                        </span>
+                                                    </label>
+                                                    <input data-tw-merge="" id="nama_kegiatan" name="nama_kegiatan"
+                                                        type="text" placeholder="Masukkan judul kegiatan..."
+                                                        required="required"
+                                                        class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control">
                                                 </div>
+                                                <div class="input-form mt-3 [&.has-error_.form-control]:border-danger">
+                                                    <label data-tw-merge="" for="tanggal_mulai"
+                                                        class="mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right flex w-full flex-col sm:flex-row">
+                                                        Tanggal Mulai
+                                                        <span class="mt-1 text-xs text-slate-500 sm:ml-auto sm:mt-0">
+                                                            Required, email address format
+                                                        </span>
+                                                    </label>
+                                                    <input data-tw-merge="" id="tanggal_mulai" name="tanggal_mulai"
+                                                        type="date" placeholder="example@gmail.com" required="required"
+                                                        class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control">
+                                                    <input data-tw-merge="" id="tanggal_mulai" name="tanggal_mulai_time"
+                                                        type="time" placeholder="example@gmail.com" required="required"
+                                                        class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control mt-1">
+                                                </div>
+                                                <div class="input-form mt-3 [&.has-error_.form-control]:border-danger">
+                                                    <label data-tw-merge="" for="tanggal_akhir"
+                                                        class="mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right flex w-full flex-col sm:flex-row">
+                                                        Tanggal Akhir
+                                                        <span class="mt-1 text-xs text-slate-500 sm:ml-auto sm:mt-0">
+                                                            Required
+                                                        </span>
+                                                    </label>
+                                                    <input data-tw-merge="" id="tanggal_akhir" name="password"
+                                                        type="date" placeholder="secret" required="required"
+                                                        class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control">
+                                                    <input data-tw-merge="" id="tanggal_akhir" name="tanggal_akhir_time"
+                                                        type="time" placeholder="example@gmail.com" required="required"
+                                                        class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control mt-1">
+                                                </div>
+                                                <div class="input-form mt-3 [&.has-error_.form-control]:border-danger">
+                                                    <label data-tw-merge="" for="deskripsi"
+                                                        class="mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right flex w-full flex-col sm:flex-row">
+                                                        Deskripsi
+                                                        <span class="mt-1 text-xs text-slate-500 sm:ml-auto sm:mt-0">
+                                                            Required
+                                                        </span>
+                                                    </label>
+                                                    <textarea data-tw-merge="" id="deskripsi" name="deskripsi" placeholder="Isi deskripsi..." minlength="10"
+                                                        required="required"
+                                                        class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control"></textarea>
+                                                </div>
+                                                <button data-tw-merge="" type="submit"
+                                                    class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary mt-5">Register</button>
+                                            </form>
+                                            <!-- END: Validation Form -->
+                                        </div>
+                                        <div class="source hide relative [&.hide]:overflow-hidden [&.hide]:h-0">
+                                            <div class="highlight">
+                                                <button data-tw-merge=""
+                                                    class="transition duration-200 border shadow-sm inline-flex items-center justify-center rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed border-secondary text-slate-500 dark:border-darkmode-100/40 dark:text-slate-300 [&:hover:not(:disabled)]:bg-secondary/20 [&:hover:not(:disabled)]:dark:bg-darkmode-100/10 py-1 px-2 copy-code"><i
+                                                        data-tw-merge="" data-lucide="file"
+                                                        class="stroke-[1] copy-code mr-2 h-4 w-4"></i>
+                                                    Copy example code</button>
+                                            </div>
+                                            <div class="highlight">
+                                                <button data-tw-merge=""
+                                                    class="transition duration-200 border shadow-sm inline-flex items-center justify-center rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed border-secondary text-slate-500 dark:border-darkmode-100/40 dark:text-slate-300 [&:hover:not(:disabled)]:bg-secondary/20 [&:hover:not(:disabled)]:dark:bg-darkmode-100/10 py-1 px-2 copy-code mt-5"><i
+                                                        data-tw-merge="" data-lucide="file"
+                                                        class="stroke-[1] copy-code mr-2 h-4 w-4"></i>
+                                                    Copy example code</button>
                                             </div>
                                         </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- BEGIN: Success Notification Content -->
+                        <div id="success-notification-content"
+                            class="py-5 pl-5 pr-14 bg-white border border-slate-200/60 rounded-lg shadow-xl dark:bg-darkmode-600 dark:text-slate-300 dark:border-darkmode-600 hidden flex">
+                            <i data-tw-merge="" data-lucide="check-circle" class="stroke-[1] w-5 h-5 text-success"></i>
+                            <div class="ml-4 mr-4">
+                                <div class="font-medium">Registration success!</div>
+                                <div class="mt-1 text-slate-500">
+                                    Please check your e-mail for further info!
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: Success Notification Content -->
+                        <!-- BEGIN: Failed Notification Content -->
+                        <div id="failed-notification-content"
+                            class="py-5 pl-5 pr-14 bg-white border border-slate-200/60 rounded-lg shadow-xl dark:bg-darkmode-600 dark:text-slate-300 dark:border-darkmode-600 hidden flex">
+                            <i data-tw-merge="" data-lucide="x-circle" class="stroke-[1] w-5 h-5 text-danger"></i>
+                            <div class="ml-4 mr-4">
+                                <div class="font-medium">Registration failed!</div>
+                                <div class="mt-1 text-slate-500">
+                                    Please check the fileld form.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: Failed Notification Content -->
                     </div>
                 </div>
             </div>

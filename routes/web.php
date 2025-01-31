@@ -11,6 +11,8 @@ use App\Http\Controllers\RolePermissionController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan.index');
+    Route::get('/kegiatan/create', [KegiatanController::class, 'create'])->name('kegiatan.create');
+
     Route::view('/', 'auth.login')->name('login');
     Route::view('/register', 'auth.register');
     Route::post('/login', [AuthController::class, 'login']);

@@ -9,12 +9,20 @@ class KegiatanController extends Controller
 {
     public function index()
     {
-        return view('admin.kegiatan.kegiatan-view');
+        $data = [
+            'title' => 'Kegiatan'
+        ];
+
+        return view('admin.kegiatan.kegiatan-view', $data);
     }
 
     public function create()
     {
-        //
+        $data = [
+            'title' => 'Tambah Kegiatan'
+        ];
+
+        return view('admin.kegiatan.kegiatan-create', $data);
     }
 
     public function store(Request $request)
