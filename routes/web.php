@@ -1,11 +1,17 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+<<<<<<< HEAD
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 
 use Illuminate\Support\Facades\Route;
+=======
+use App\Http\Controllers\UsersManagement;
+use App\Http\Controllers\RolePermissionController;
+use App\Http\Controllers\TeamController;
+>>>>>>> 38e368f7931362b1e725c9900339e6695890f1eb
 
 // rafi
 // nanda
@@ -43,3 +49,8 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
 // rofi
 
 // muqtafi
+Route::get('/team', [TeamController::class, 'index'])->name('team.index');
+Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
+Route::get('/team/update/{id}', [TeamController::class, 'update'])->name('team.update');
+Route::post('/team/destroy{id}', [TeamController::class, 'destroy'])->name('team.destroy');
+
