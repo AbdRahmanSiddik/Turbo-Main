@@ -29,7 +29,7 @@
         <ul class="scrollable">
             <!-- BEGIN: First Child -->
 
-            @can('manage users')
+            @can('dashboard view')
                 <li class="side-menu__divider">
                     DASHBOARDS
                 </li>
