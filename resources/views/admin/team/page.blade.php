@@ -111,13 +111,15 @@
                                                         class="dropdown-menu absolute z-[9999] hidden">
                                                         <div data-tw-merge=""
                                                             class="dropdown-content rounded-md border-transparent bg-white p-2 shadow-[0px_3px_10px_#00000017] dark:border-transparent dark:bg-darkmode-600 w-40">
-                                                            <a data-tw-merge data-tw-toggle="modal" data-tw-target="#update{{ $team->token_team }}"
+                                                            <a data-tw-merge data-tw-toggle="modal"
+                                                                data-tw-target="#update{{ $team->token_team }}"
                                                                 href="#"
                                                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
                                                                     data-tw-merge="" data-lucide="check-square"
                                                                     class="stroke-[1] mr-2 h-4 w-4"></i>
                                                                 Edit</a>
-                                                            <a data-tw-merge data-tw-toggle="modal" data-tw-target="#delete{{ $team->token_team }}"
+                                                            <a data-tw-merge data-tw-toggle="modal"
+                                                                data-tw-target="#delete{{ $team->token_team }}"
                                                                 href="#"
                                                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item text-danger"><i
                                                                     data-tw-merge="" data-lucide="trash2"
@@ -131,7 +133,8 @@
                                     </tr>
 
                                     {{-- update modal --}}
-                                    <div data-tw-backdrop="" aria-hidden="true" tabindex="-1" id="update{{ $team->token_team }}"
+                                    <div data-tw-backdrop="" aria-hidden="true" tabindex="-1"
+                                        id="update{{ $team->token_team }}"
                                         class="modal group bg-gradient-to-b from-theme-1/50 via-theme-2/50 to-black/50 transition-[visibility,opacity] w-screen h-screen fixed left-0 top-0 [&:not(.show)]:duration-[0s,0.2s] [&:not(.show)]:delay-[0.2s,0s] [&:not(.show)]:invisible [&:not(.show)]:opacity-0 [&.show]:visible [&.show]:opacity-100 [&.show]:duration-[0s,0.4s]">
                                         <div data-tw-merge
                                             class="w-[90%] mx-auto bg-white relative rounded-md shadow-md transition-[margin-top,transform] duration-[0.4s,0.3s] -mt-16 group-[.show]:mt-16 group-[.modal-static]:scale-[1.05] dark:bg-darkmode-600 sm:w-[600px] ">
@@ -151,7 +154,7 @@
                                                             Team Name
                                                         </label>
                                                         <input data-tw-merge id="team-name" type="text"
-                                                            placeholder="Razor"
+                                                            placeholder="Razor" value="{{ $team->nama_team }}"
                                                             class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&amp;[readonly]]:bg-slate-100 [&amp;[readonly]]:cursor-not-allowed [&amp;[readonly]]:dark:bg-darkmode-800/50 [&amp;[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&amp;[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&amp;:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
                                                     </div>
                                                     <div class="mt-3">
@@ -159,10 +162,14 @@
                                                             class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
                                                             Avatar
                                                         </label>
-                                                        <input data-tw-merge id="avatar" type="file"
-                                                            placeholder="Input file"
-                                                            class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
+                                                        <label for="input-file" id="drop-area" class="inline-block h-64 w-full">
+                                                            <input type="file" accept="image/*" id="input-file" hidden name="avatar">
+                                                            <div id="image-view" class="w-full h-full rounded-[20px] border-2 border-dashed border-[#bbb5ff] bg-[#f7f8ff] flex items-center justify-center p-2">
+                                                                <img id="preview-image" src="{{ asset('img') }}/team/{{ $team->avatar }}" alt="Preview" class="h-full">
+                                                            </div>
+                                                        </label>
                                                     </div>
+
                                                     <div class="mt-3">
                                                         <label data-tw-merge for="mentor"
                                                             class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
@@ -171,9 +178,10 @@
                                                         <select id="mentor" data-tw-merge
                                                             aria-label="Default select example"
                                                             class="disabled:bg-slate-100 disabled:cursor-not-allowed disabled:dark:bg-darkmode-800/50 [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md pb-2 px-3 pr-8 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 group-[.form-inline]:flex-1">
-                                                            <option>Chris Evans</option>
-                                                            <option>Liam Neeson</option>
-                                                            <option>Daniel Craig</option>
+                                                            @foreach ($mentors as $mentor)
+                                                                <option value="{{ $mentor->id }}">{{ $mentor->name }}
+                                                                </option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="mt-3">
@@ -184,7 +192,8 @@
                                                                 Deskripsi
                                                             </label>
                                                             <textarea data-tw-merge id="deskripsi" name="comment" placeholder="Razor adalah" minlength="10" required="required"
-                                                                class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control form-control"></textarea>
+                                                                class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control form-control">{{ $team->deskripsi }}
+                                                            </textarea>
                                                         </div>
                                                     </div>
 
@@ -198,7 +207,8 @@
                                     {{-- end update modal --}}
 
                                     {{-- delete modal --}}
-                                    <div data-tw-backdrop="" aria-hidden="true" tabindex="-1" id="delete{{ $team->token_team }}"
+                                    <div data-tw-backdrop="" aria-hidden="true" tabindex="-1"
+                                        id="delete{{ $team->token_team }}"
                                         class="modal group bg-gradient-to-b from-theme-1/50 via-theme-2/50 to-black/50 transition-[visibility,opacity] w-screen h-screen fixed left-0 top-0 [&:not(.show)]:duration-[0s,0.2s] [&:not(.show)]:delay-[0.2s,0s] [&:not(.show)]:invisible [&:not(.show)]:opacity-0 [&.show]:visible [&.show]:opacity-100 [&.show]:duration-[0s,0.4s]">
                                         <div data-tw-merge
                                             class="w-[90%] mx-auto bg-white relative rounded-md shadow-md transition-[margin-top,transform] duration-[0.4s,0.3s] -mt-16 group-[.show]:mt-16 group-[.modal-static]:scale-[1.05] dark:bg-darkmode-600 sm:w-[460px]">
@@ -252,16 +262,23 @@
                             Team Name
                         </label>
                         <input data-tw-merge id="team-name" name="nama_team" type="text" placeholder="Razor"
-                            class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&amp;[readonly]]:bg-slate-100 [&amp;[readonly]]:cursor-not-allowed [&amp;[readonly]]:dark:bg-darkmode-800/50 [&amp;[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&amp;[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&amp;:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
+                            class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&amp;[readonly]]:bg-slate-100 [&amp;[readonly]]:cursor-not-allowed [&amp;[readonly]]:dark:bg-darkmode-800/50 [&amp;[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&amp;[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&amp;:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10" required>
                     </div>
                     <div class="mt-3">
                         <label data-tw-merge for="avatar"
                             class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
                             Avatar
                         </label>
-                        <input data-tw-merge id="avatar" type="file" placeholder="Input file" name="avatar"
-                            class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
+                        <label for="input-file" id="drop-area" class="inline-block h-64 w-full">
+                            <input type="file" accept="image/*" id="input-file" hidden name="avatar">
+                            <div id="image-view" class="w-full h-full rounded-[20px] border-2 border-dashed border-[#bbb5ff] bg-[#f7f8ff] flex items-center justify-center">
+                                <img id="preview-image" src="" alt="Preview" class="hidden h-full">
+                                <p id="drag-text">Drag here</p>
+                            </div>
+                        </label>
+                        
                     </div>
+
                     <div class="mt-3">
                         <label data-tw-merge for="mentor"
                             class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
@@ -280,7 +297,8 @@
                                 class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
                                 Deskripsi
                             </label>
-                            <textarea data-tw-merge id="deskripsi" name="deskripsi" placeholder="Razor adalah" minlength="10" required="required"
+                            <textarea data-tw-merge id="deskripsi" name="deskripsi" placeholder="Razor adalah" minlength="10"
+                                required="required"
                                 class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control form-control"></textarea>
                         </div>
                     </div>
@@ -293,4 +311,31 @@
         </div>
     </div>
     {{-- end store modal --}}
+    <script>
+        const dropArea = document.getElementById("drop-area");
+        const inputFile = document.getElementById("input-file");
+        const imgView = document.getElementById("image-view");
+        const previewImage = document.getElementById("preview-image");
+        const dragText = document.getElementById("drag-text");
+    
+        inputFile.addEventListener("change", uploadImage);
+    
+        function uploadImage() {
+            let imgLink = URL.createObjectURL(inputFile.files[0]);
+            previewImage.src = imgLink;
+            previewImage.classList.remove("hidden");
+            previewImage.classList.add("p-2");
+            dragText.classList.add("hidden");
+        }
+    
+        dropArea.addEventListener("dragover", function(e) {
+            e.preventDefault();
+        });
+    
+        dropArea.addEventListener("drop", function(e) {
+            e.preventDefault();
+            inputFile.files = e.dataTransfer.files;
+            uploadImage();
+        });
+    </script>
 @endsection

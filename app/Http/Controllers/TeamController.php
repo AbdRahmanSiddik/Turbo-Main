@@ -25,7 +25,6 @@ class TeamController extends Controller
             'deskripsi' => 'required|string|max:1000',
             'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
         do {
             $token = Str::random(16);
         } while (Team::where('token_team', $token)->exists());
@@ -51,5 +50,10 @@ class TeamController extends Controller
         }
         Team::where('token_team', $token)->delete();
         return redirect()->route('team.index')->with('success', 'Team berhasil dihapus!');
+    }
+
+    public function update($token){
+
+        return view('admin.team.update', compact(''));
     }
 }
