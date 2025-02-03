@@ -14,6 +14,7 @@
 <script src="{{ asset('assets') }}/dist/js/vendors/highlight.js"></script>
 <script src="{{ asset('assets') }}/dist/js/vendors/toastify.js"></script>
 <script src="{{ asset('assets') }}/dist/js/vendors/pristine.js"></script>
+<script src="{{ asset('assets') }}/dist/js/vendors/dropzone.js"></script>
 
 <script src="{{ asset('assets') }}/dist/js/components/base/theme-color.js"></script>
 <script src="{{ asset('assets') }}/dist/js/components/base/lucide.js"></script>
@@ -22,6 +23,7 @@
 <script src="{{ asset('assets') }}/dist/js/components/base/highlight.js"></script>
 <script src="{{ asset('assets') }}/dist/js/components/base/source.js"></script>
 <script src="{{ asset('assets') }}/dist/js/components/base/preview-component.js"></script>
+<script src="{{ asset('assets') }}/dist/js/components/base/dropzone.js"></script>
 
 <script src="{{ asset('assets') }}/dist/js/themes/razor.js"></script>
 
@@ -29,6 +31,6 @@
 
 <script src="{{ asset('assets') }}/dist/js/pages/validation.js"></script>
 
-
+<script src="{{ asset('assets') }}/script.js"></script>
 
 
