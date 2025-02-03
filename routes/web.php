@@ -3,11 +3,10 @@
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\RoleController;
-
-use App\Http\Controllers\TeamController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TeamController;
 
 // rafi
 Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan.index');
@@ -52,5 +51,6 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
 // muqtafi
 Route::get('/team', [TeamController::class, 'index'])->name('team.index');
 Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
-Route::get('/team/update/{id}', [TeamController::class, 'update'])->name('team.update');
-Route::post('/team/destroy{id}', [TeamController::class, 'destroy'])->name('team.destroy');
+Route::get('/team/update/{token}', [TeamController::class, 'update'])->name('team.update');
+Route::post('/team/destroy/{token}', [TeamController::class, 'destroy'])->name('team.destroy');
+
