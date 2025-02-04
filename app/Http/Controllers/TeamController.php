@@ -52,8 +52,9 @@ class TeamController extends Controller
         return redirect()->route('team.index')->with('success', 'Team berhasil dihapus!');
     }
 
-    public function update($token){
+    public function update(Request $request, $token){
 
-        return view('admin.team.update', compact(''));
+        dd($token, $request->all());
+        return redirect()->route('team.index');
     }
 }

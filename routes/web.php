@@ -53,6 +53,6 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
 // muqtafi
 Route::get('/team', [TeamController::class, 'index'])->name('team.index');
 Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
-Route::get('/team/update/{token}', [TeamController::class, 'update'])->name('team.update');
+Route::post('/team/update/{token}', [TeamController::class, 'update'])->name('team.update');
 Route::post('/team/destroy/{token}', [TeamController::class, 'destroy'])->name('team.destroy');
 

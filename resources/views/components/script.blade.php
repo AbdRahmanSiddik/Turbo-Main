@@ -32,5 +32,6 @@
 <script src="{{ asset('assets') }}/dist/js/pages/validation.js"></script>
 
 <script src="{{ asset('assets') }}/script.js"></script>
+<script src="{{ asset('assets') }}/team/script.js"></script>
 
 
