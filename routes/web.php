@@ -12,7 +12,9 @@ use App\Http\Controllers\TeamController;
 Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan.index');
 
 Route::get('/kegiatan/create', [KegiatanController::class, 'create'])->name('kegiatan.create');
-Route::post('/kegiatan/store', [KegiatanController::class, 'store'])->name('kegiatan.store');
+Route::post('/kegiatan/create', [KegiatanController::class, 'store'])->name('kegiatan.store');
+
+Route::get('/kegiatan/edit/{kegiatan}', [KegiatanController::class, 'edit'])->name('kegiatan.edit');
 
 // start nanda
 Route::middleware('guest')->group(function () {

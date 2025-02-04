@@ -15,7 +15,7 @@ class Kegiatan extends Model
 
     public function getRouteKeyName()
     {
-        return 'token_kategori';
+        return 'token_kegiatan';
     }
 
 }

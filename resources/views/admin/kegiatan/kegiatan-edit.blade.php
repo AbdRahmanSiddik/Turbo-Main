@@ -33,7 +33,7 @@
                             <div
                                 class="mb-5 flex flex-col border-b border-dashed border-slate-300/70 pb-5 sm:flex-row sm:items-center">
                                 <div class="text-[0.94rem] font-medium">
-                                    Form Tambah
+                                    Form Edit
                                 </div>
                             </div>
                             <div>
@@ -57,8 +57,8 @@
                                                         </span>
                                                     </label>
                                                     <input data-tw-merge="" id="nama_kegiatan" name="nama_kegiatan"
-                                                        type="text" placeholder="Masukkan judul kegiatan..."
-                                                        required="required"
+                                                        type="text" value="{{ $kegiatan->nama_kegiatan }}"
+                                                        placeholder="Masukkan judul kegiatan..." required="required"
                                                         class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control">
                                                 </div>
                                                 <div class="input-form mt-3 [&.has-error_.form-control]:border-danger">
@@ -70,8 +70,8 @@
                                                         </span>
                                                     </label>
                                                     <input data-tw-merge="" id="tanggal_mulai" name="tanggal_mulai"
-                                                        type="datetime-local" placeholder="example@gmail.com"
-                                                        required="required"
+                                                        type="datetime-local" value="{{ $kegiatan->tanggal_mulai }}"
+                                                        placeholder="example@gmail.com" required="required"
                                                         class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control">
                                                 </div>
                                                 <div class="input-form mt-3 [&.has-error_.form-control]:border-danger">
@@ -83,7 +83,8 @@
                                                         </span>
                                                     </label>
                                                     <input data-tw-merge="" id="tanggal_akhir" name="tanggal_akhir"
-                                                        type="datetime-local" placeholder="secret" required="required"
+                                                        type="datetime-local" value="{{ $kegiatan->tanggal_akhir }}"
+                                                        placeholder="secret" required="required"
                                                         class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control">
                                                 </div>
                                                 <div class="input-form mt-3 [&.has-error_.form-control]:border-danger">
@@ -96,7 +97,9 @@
                                                     </label>
                                                     <textarea data-tw-merge="" id="deskripsi" name="deskripsi" placeholder="Isi deskripsi..." minlength="10"
                                                         required="required"
-                                                        class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control"></textarea>
+                                                        class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control">
+                                                        {{ $kegiatan->deskripsi }}
+                                                    </textarea>
                                                 </div>
                                                 <div class="input-form mt-3 [&.has-error_.form-control]:border-danger">
                                                     <label data-tw-merge="" for="thumbnail"
@@ -108,9 +111,10 @@
                                                     </label>
                                                     <div class="hero">
                                                         <label for="input-file" id="drop-area">
-                                                            <input type="file" accept="image/*" id="input-file" name="thumbnail" hidden>
+                                                            <input type="file" accept="image/*" id="input-file"
+                                                                name="thumbnail" hidden>
                                                             <div id="image-view">
-                                                                <img src="{{ asset('assets') }}/508-icon.png">
+                                                                <img src="{{ asset('img/kegiatan/' . $kegiatan->thumbnail) }}">
                                                                 <p>Drag here</p>
                                                             </div>
                                                         </label>

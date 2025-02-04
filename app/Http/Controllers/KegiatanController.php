@@ -30,7 +30,7 @@ class KegiatanController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         $file = $request->file('thumbnail');
 
@@ -51,11 +51,11 @@ class KegiatanController extends Controller
         $kegiatan->tanggal_mulai = $request->tanggal_mulai;
         $kegiatan->tanggal_akhir = $request->tanggal_akhir;
         $kegiatan->deskripsi = $request->deskripsi;
-        $kegiatan->thumbnail = $request->thumbnail;
+        $kegiatan->thumbnail = $nama_file;
         $kegiatan->status = $status;
         $kegiatan->save();
 
-        $file->move('foto-kegiatan', $nama_file);
+        $file->move('img/kegiatan', $nama_file);
         return redirect()->route('kegiatan.index')->with('success', 'Kegiatan berhasil ditambahkan');
     }
 
@@ -66,7 +66,12 @@ class KegiatanController extends Controller
 
     public function edit(Kegiatan $kegiatan)
     {
-        //
+        $data = [
+            'title' => 'Edit Kegiatan',
+            'kegiatan' => $kegiatan,
+        ];
+
+        return view('admin.kegiatan.kegiatan-edit', $data);
     }
 
     public function update(Request $request, Kegiatan $kegiatan)
@@ -75,5 +80,8 @@ class KegiatanController extends Controller
 
     }
 
-    public function destroy(Kegiatan $kegiatan) {}
+    public function destroy(Kegiatan $kegiatan)
+    {
+        //
+    }
 }

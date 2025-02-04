@@ -76,7 +76,7 @@
                                             class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
                                             <div class="flex">
                                                 <div class="image-fit zoom-in h-9 w-9">
-                                                    <img src="{{ asset('foto-kegiatan' . $value->thumbnail) }}"
+                                                    <img src="{{ asset('img/kegiatan/' . $value->thumbnail) }}"
                                                         alt="Product Image"
                                                         class="tooltip cursor-pointer rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]">
                                                 </div>
@@ -138,10 +138,11 @@
                                                         <div data-tw-merge=""
                                                             class="dropdown-content rounded-md border-transparent bg-white p-2 shadow-[0px_3px_10px_#00000017] dark:border-transparent dark:bg-darkmode-600 w-40">
                                                             <a class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"
-                                                                href="/kegiatan/{{ $value->token_kegiatan }}/update">
+                                                                href="{{ route('kegiatan.edit', $value->token_kegiatan) }}">
                                                                 <i data-tw-merge="" data-lucide="check-square"
                                                                     class="stroke-[1] mr-2 h-4 w-4"></i>
-                                                                Edit</a>
+                                                                Edit
+                                                            </a>
                                                             <a
                                                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item text-danger">
                                                                 <i data-tw-merge="" data-lucide="trash2"
