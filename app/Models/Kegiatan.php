@@ -18,4 +18,9 @@ class Kegiatan extends Model
         return 'token_kegiatan';
     }
 
+    protected $casts = [
+    'tanggal_mulai' => 'datetime',
+    'tanggal_akhir' => 'datetime',
+];
+
 }
