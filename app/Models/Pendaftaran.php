@@ -15,4 +15,19 @@ class Pendaftaran extends Model
     {
         return 'token_pendaftaran';
     }
+
+    public function peserta()
+    {
+        return $this->belongsTo(User::class, 'peserta_id', 'id');
+    }
+
+    public function kegiatan()
+    {
+        return $this->belongsTo(Kegiatan::class, 'kegiatan_id', 'id_kegiatan');
+    }
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'team_id', 'id_team');
+    }
 }

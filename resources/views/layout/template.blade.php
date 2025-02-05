@@ -764,7 +764,7 @@
                                                     data-tw-merge="" data-lucide="users"
                                                     class="stroke-[1] mr-2 h-4 w-4"></i>
                                                 Profile Info</a>
-                                            <a href="razor-login.html"
+                                            <a href="/logout"
                                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
                                                     data-tw-merge="" data-lucide="power"
                                                     class="stroke-[1] mr-2 h-4 w-4"></i>

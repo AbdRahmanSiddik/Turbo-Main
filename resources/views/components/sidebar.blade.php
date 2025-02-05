@@ -675,6 +675,39 @@
                 <!-- BEGIN: Second Child -->
                 <!-- END: Second Child -->
             </li>
+            <li>
+                <a href="/dashboard/pendaftaran" class="side-menu__link ">
+                    <i data-tw-merge="" data-lucide="image" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                    <div class="side-menu__link__title">Dashboard Pendaftaran</div>
+                </a>
+                <!-- BEGIN: Second Child -->
+                <!-- END: Second Child -->
+            </li>
+            <li>
+                <a href="javascript:;" class="side-menu__link ">
+                    <i data-tw-merge="" data-lucide="table2" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                    <div class="side-menu__link__title">Kegiatan</div>
+                    <i data-tw-merge="" data-lucide="chevron-down"
+                        class="stroke-[1] w-5 h-5 side-menu__link__chevron"></i>
+                </a>
+                <!-- BEGIN: Second Child -->
+                <ul class="hidden">
+                    @kegiatan
+                    <li>
+                        <a href="/detail/pendaftaran/{{ $kegiatan->token_kegiatan }}" class="side-menu__link ">
+                            <i data-tw-merge="" data-lucide="layout-panel-top"
+                                class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                            <div class="side-menu__link__title">
+                                {{ $kegiatan->nama_kegiatan }}
+                            </div>
+                        </a>
+                        <!-- BEGIN: Third Child -->
+                        <!-- END: Third Child -->
+                    </li>
+                    @endkegiatan
+                </ul>
+                <!-- END: Second Child -->
+            </li>
             <!-- END: First Child -->
         </ul>
     </div>
