@@ -23,4 +23,9 @@ class Kegiatan extends Model
         return $this->hasMany(Pendaftaran::class, 'kegiatan_id', 'id_kegiatan');
     }
 
+    protected $casts = [
+    'tanggal_mulai' => 'datetime',
+    'tanggal_akhir' => 'datetime',
+];
+
 }
