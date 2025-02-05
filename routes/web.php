@@ -15,6 +15,7 @@ Route::get('/kegiatan/create', [KegiatanController::class, 'create'])->name('keg
 Route::post('/kegiatan/create', [KegiatanController::class, 'store'])->name('kegiatan.store');
 
 Route::get('/kegiatan/edit/{kegiatan}', [KegiatanController::class, 'edit'])->name('kegiatan.edit');
+Route::post('/kegiatan/edit/{kegiatan}', [KegiatanController::class, 'update'])->name('kegiatan.update');
 
 // start nanda
 Route::middleware('guest')->group(function () {

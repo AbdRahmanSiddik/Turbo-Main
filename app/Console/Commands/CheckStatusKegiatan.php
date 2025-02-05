@@ -20,26 +20,34 @@ class CheckStatusKegiatan extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Memeriksa dan memperbarui status kegiatan berdasarkan tanggal';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        $kegiatans = Kegiatan::get();
-        $today = Carbon::now()->setTimezone('Asia/Jakarta')->format('dmy H:i');
+        $today = Carbon::now()->setTimezone('Asia/Jakarta');
+        $kegiatans = Kegiatan::all();
 
         foreach ($kegiatans as $kegiatan) {
-            // Konversi string ke Carbon
             $tanggalMulai = Carbon::parse($kegiatan->tanggal_mulai)->setTimezone('Asia/Jakarta');
+            $tanggalAkhir = Carbon::parse($kegiatan->tanggal_akhir)->setTimezone('Asia/Jakarta');
 
-            if ($tanggalMulai->format('dmy H:i') === $today) {
-                $kegiatan->update(['status' => 'dimulai']);
-                $this->info('Kegiatan ' . $kegiatan->nama_kegiatan . ' berstatus dimulai');
+            if ($today->lt($tanggalMulai)) {
+                $status = 'akan_datang';
+            } elseif ($today->between($tanggalMulai, $tanggalAkhir)) {
+                $status = 'dimulai';
+            } else {
+                $status = 'selesai';
+            }
+
+            if ($kegiatan->status !== $status) {
+                $kegiatan->update(['status' => $status]);
+                $this->info('Kegiatan "' . $kegiatan->nama_kegiatan . '" diperbarui menjadi: ' . strtoupper($status));
             }
         }
 
-        $this->info('Check Kegiatan berhasil dijalankan');
+        $this->info('Check status kegiatan selesai.');
     }
 }
