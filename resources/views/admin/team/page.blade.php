@@ -63,7 +63,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($teams as $team)
+                                @forelse ($teams as $team)
                                     <tr class="[&_td]:last:border-b-0">
                                         <td
                                             class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
@@ -133,7 +133,13 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="6" class="px-5 py-4 text-center text-slate-500 dark:text-slate-400">
+                                            Tidak ada data yang tersedia
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -224,7 +230,7 @@
                 <i data-tw-merge data-lucide="x"
                     class="stroke-[1] w-5 h-5 h-8 w-8 text-slate-400 h-8 w-8 text-slate-400"></i>
             </a>
-            <form action="" id="form-update" method="post">
+            <form action="" id="form-update" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="p-5">
                     <div class="text-[0.94rem] font-medium pb-5">
@@ -235,7 +241,8 @@
                             class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
                             Team Name
                         </label>
-                        <input data-tw-merge id="update-name" type="text" placeholder="Razor" value="" name="nama_team"
+                        <input data-tw-merge id="update-name" type="text" placeholder="Razor" value=""
+                            name="nama_team"
                             class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&amp;[readonly]]:bg-slate-100 [&amp;[readonly]]:cursor-not-allowed [&amp;[readonly]]:dark:bg-darkmode-800/50 [&amp;[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&amp;[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&amp;:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
                     </div>
                     <div class="mt-3">
@@ -244,8 +251,8 @@
                             Avatar
                         </label>
                         <label for="update-image" class="area-drop inline-block h-64 w-full cursor-pointer">
-                            <input type="file" accept="image/*" id="update-image" value="" class="input-gambar hidden"
-                                name="avatar">
+                            <input type="file" accept="image/*" id="update-image" value=""
+                                class="input-gambar hidden" name="avatar">
                             <div
                                 class="tampilan-gambar w-full h-full rounded-2xl border-2 border-dashed flex items-center justify-center overflow-hidden p-2">
                                 <img id="preview-image-update" src="" alt="Preview"
@@ -276,7 +283,7 @@
                             </label>
                             <textarea data-tw-merge id="update-deskripsi" name="deskripsi" placeholder="Razor adalah" minlength="10"
                                 required="required"
-                                class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control form-control">{{ $team->deskripsi }}
+                                class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 form-control form-control">
                         </textarea>
                         </div>
                     </div>
@@ -295,7 +302,7 @@
         class="modal group bg-gradient-to-b from-theme-1/50 via-theme-2/50 to-black/50 transition-[visibility,opacity] w-screen h-screen fixed left-0 top-0 [&:not(.show)]:duration-[0s,0.2s] [&:not(.show)]:delay-[0.2s,0s] [&:not(.show)]:invisible [&:not(.show)]:opacity-0 [&.show]:visible [&.show]:opacity-100 [&.show]:duration-[0s,0.4s]">
         <div data-tw-merge
             class="w-[90%] mx-auto bg-white relative rounded-md shadow-md transition-[margin-top,transform] duration-[0.4s,0.3s] -mt-16 group-[.show]:mt-16 group-[.modal-static]:scale-[1.05] dark:bg-darkmode-600 sm:w-[460px]">
-            <form id="form-delete" action="/team/destroy/{{ $team->token_team }}" method="post">
+            <form id="form-delete" action="" method="post">
                 @csrf
                 <div class="p-5 text-center">
                     <i data-tw-merge data-lucide="x-circle"
