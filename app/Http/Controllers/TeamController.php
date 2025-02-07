@@ -15,7 +15,9 @@ class TeamController extends Controller
         $mentors = User::with('roles')->whereHas('roles', function ($query) {
             $query->where('name', 'mentor');
         })->get();
-        return view('admin.team.page', compact('teams', 'mentors'));
+        $title = 'Team';
+
+        return view('admin.team.page', compact('teams', 'mentors', 'title'));
     }
 
     public function store(Request $request){
