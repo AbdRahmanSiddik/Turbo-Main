@@ -121,6 +121,12 @@ class KegiatanController extends Controller
 
     public function destroy(Kegiatan $kegiatan)
     {
-        //
+        // Hapus file thumbnail jika ada
+        if ($kegiatan->thumbnail && file_exists(public_path('img/kegiatan/' . $kegiatan->thumbnail))) {
+            unlink(public_path('img/kegiatan/' . $kegiatan->thumbnail));
+        }
+
+        $kegiatan->delete();
+        return redirect()->route('kegiatan.index')->with('success', 'Kegiatan berhasil dihapus');
     }
 }

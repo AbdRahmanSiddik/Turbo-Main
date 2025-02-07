@@ -143,11 +143,44 @@
                                                                     class="stroke-[1] mr-2 h-4 w-4"></i>
                                                                 Edit
                                                             </a>
-                                                            <a
+                                                            <a data-tw-merge="" data-tw-toggle="modal"
+                                                                data-tw-target="#delete{{ $value->token_kegiatan }}"
                                                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item text-danger">
                                                                 <i data-tw-merge="" data-lucide="trash2"
                                                                     class="stroke-[1] mr-2 h-4 w-4"></i>
-                                                                Delete</a>
+                                                                Hapus
+                                                            </a>
+                                                            <!-- BEGIN: Modal Content -->
+                                                            <div data-tw-backdrop="" aria-hidden="true" tabindex="-1"
+                                                                id="delete{{ $value->token_kegiatan }}"
+                                                                class="modal group bg-gradient-to-b from-theme-1/50 via-theme-2/50 to-black/50 transition-[visibility,opacity] w-screen h-screen fixed left-0 top-0 [&:not(.show)]:duration-[0s,0.2s] [&:not(.show)]:delay-[0.2s,0s] [&:not(.show)]:invisible [&:not(.show)]:opacity-0 [&.show]:visible [&.show]:opacity-100 [&.show]:duration-[0s,0.4s]">
+                                                                <div data-tw-merge
+                                                                    class="w-[90%] mx-auto bg-white relative rounded-md shadow-md transition-[margin-top,transform] duration-[0.4s,0.3s] -mt-16 group-[.show]:mt-16 group-[.modal-static]:scale-[1.05] dark:bg-darkmode-600 sm:w-[460px]">
+                                                                    <div class="p-5 text-center">
+                                                                        <i data-tw-merge data-lucide="x-circle"
+                                                                            class="stroke-[1] w-5 h-5 mx-auto mt-3 h-16 w-16 text-danger mx-auto mt-3 h-16 w-16 text-danger"></i>
+                                                                        <div class="mt-5 text-3xl">Apakah Anda yakin?</div>
+                                                                        <div class="mt-2 text-slate-500">
+                                                                            Apakah Anda benar-benar ingin menghapus data
+                                                                            {{ $value->nama_kegiatan }}? <br>
+                                                                            Proses ini tidak dapat dibatalkan.
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="px-5 pb-8 text-center">
+                                                                        <button data-tw-merge data-tw-dismiss="modal"
+                                                                            type="button"
+                                                                            class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed border-secondary text-slate-500 dark:border-darkmode-100/40 dark:text-slate-300 [&:hover:not(:disabled)]:bg-secondary/20 [&:hover:not(:disabled)]:dark:bg-darkmode-100/10 mr-1 w-24 mr-1 w-24">
+                                                                            Batal
+                                                                        </button>
+                                                                        <a data-tw-merge
+                                                                            href="{{ route('kegiatan.destroy', $value->token_kegiatan) }}"
+                                                                            class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-danger border-danger text-white dark:border-danger w-24 w-24">
+                                                                            Hapus
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- END: Modal Content -->
                                                         </div>
                                                     </div>
                                                 </div>

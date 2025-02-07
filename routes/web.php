@@ -17,6 +17,8 @@ Route::post('/kegiatan/create', [KegiatanController::class, 'store'])->name('keg
 Route::get('/kegiatan/edit/{kegiatan}', [KegiatanController::class, 'edit'])->name('kegiatan.edit');
 Route::post('/kegiatan/edit/{kegiatan}', [KegiatanController::class, 'update'])->name('kegiatan.update');
 
+Route::get('/kegiatan/delete/{kegiatan}', [KegiatanController::class, 'destroy'])->name('kegiatan.destroy');
+
 // start nanda
 Route::middleware('guest')->group(function () {
     Route::view('/', 'auth.login')->name('login');

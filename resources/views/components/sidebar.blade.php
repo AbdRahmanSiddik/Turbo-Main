@@ -16,7 +16,7 @@
             </div>
             <div
                 class="ml-3.5 font-medium text-white transition-opacity group-[.side-menu--collapsed.side-menu--on-hover]:xl:opacity-100 group-[.side-menu--collapsed]:xl:opacity-0">
-                RAZOR
+                Turbo-Main
             </div>
         </a>
         <a class="toggle-compact-menu ml-auto hidden h-[20px] w-[20px] items-center justify-center rounded-full border border-white/40 text-white transition-[opacity,transform] hover:bg-white/5 group-[.side-menu--collapsed]:xl:rotate-180 group-[.side-menu--collapsed.side-menu--on-hover]:xl:opacity-100 group-[.side-menu--collapsed]:xl:opacity-0 3xl:flex"
@@ -51,7 +51,7 @@
                         class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
                     <div class="side-menu__link__title">Kegiatan</div>
                     <div class="side-menu__link__badge">
-                        4
+                        {{ total_kegiatan() }}
                     </div>
                 </a>
                 <!-- BEGIN: Second Child -->

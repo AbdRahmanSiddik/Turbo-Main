@@ -13,7 +13,7 @@
     <meta name="keywords"
         content="admin template, Tailwise Admin Template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="LEFT4CODE">
-    <title>Tailwise - Admin Dashboard Template</title>
+    <title>Turbo Main - {{ $title }}</title>
     <!-- BEGIN: CSS Assets-->
     @include('components.style')
     <!-- END: CSS Assets-->
