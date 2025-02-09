@@ -10,8 +10,14 @@ class PermissionController extends Controller
 {
     public function index()
     {
-        $permissions = Permission::all();
-        return view('admin.users_management.permissions.page', compact('permissions'));
+        $datas = [
+            'permissions' => Permission::all(),
+
+        ];
+
+
+
+        return view('admin.users_management.permissions.page', $datas);
     }
 
     public function storePermission(Request $request)

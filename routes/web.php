@@ -3,6 +3,7 @@
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -29,10 +30,7 @@ Route::middleware('guest')->group(function () {
 
 
 Route::middleware(['auth', 'role_permission'])->group(function () {
-    Route::get('dashboard', function () {
-        return view('admin.dashboard.dashboard-view');
-    })->name('dashboard');
-
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
     Route::post('roles/store', [RoleController::class, 'store'])->name('roles.store');
@@ -58,4 +56,3 @@ Route::get('/team', [TeamController::class, 'index'])->name('team.index');
 Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
 Route::post('/team/update/{token}', [TeamController::class, 'update'])->name('team.update');
 Route::post('/team/destroy/{token}', [TeamController::class, 'destroy'])->name('team.destroy');
-
