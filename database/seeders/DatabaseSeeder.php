@@ -47,8 +47,8 @@ class DatabaseSeeder extends Seeder
         );
 
         $users->assignRole('admin');
-        $users3->assignRole('admin');
         $users2->assignRole('peserta');
+        $users3->assignRole('admin');
 
         User::create(
             [

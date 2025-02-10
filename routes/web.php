@@ -9,16 +9,6 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TeamController;
 
-// rafi
-Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan.index');
-
-Route::get('/kegiatan/create', [KegiatanController::class, 'create'])->name('kegiatan.create');
-Route::post('/kegiatan/create', [KegiatanController::class, 'store'])->name('kegiatan.store');
-
-Route::get('/kegiatan/edit/{kegiatan}', [KegiatanController::class, 'edit'])->name('kegiatan.edit');
-Route::post('/kegiatan/edit/{kegiatan}', [KegiatanController::class, 'update'])->name('kegiatan.update');
-
-Route::get('/kegiatan/delete/{kegiatan}', [KegiatanController::class, 'destroy'])->name('kegiatan.destroy');
 
 // start nanda
 Route::middleware('guest')->group(function () {
@@ -27,32 +17,81 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 });
 
-
-
 Route::middleware(['auth', 'role_permission'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard')
+        ->middleware('permission:view dashboard');
 
-    Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
-    Route::post('roles/store', [RoleController::class, 'store'])->name('roles.store');
-    Route::post('/roles/{id}/update', [RoleController::class, 'update'])->name('roles.update');
-    Route::get('/roles/destroy/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+    // Manajemen Role
+    Route::get('/roles', [RoleController::class, 'index'])
+        ->name('roles.index')
+        ->middleware('permission:view roles');
+    Route::post('/roles/store', [RoleController::class, 'store'])
+        ->name('roles.store')
+        ->middleware('permission:create role');
+    Route::post('/roles/{id}/update', [RoleController::class, 'update'])
+        ->name('roles.update')
+        ->middleware('permission:update role');
+    Route::get('/roles/destroy/{id}', [RoleController::class, 'destroy'])
+        ->name('roles.destroy')
+        ->middleware('permission:delete role');
 
-    Route::get('permissions', [PermissionController::class, 'index'])->name('permissions.index');
-    Route::post('permissions/store', [PermissionController::class, 'storePermission'])->name('permissions.store');
-    Route::post('permissions/{id}/update', [PermissionController::class, 'updatePermission'])->name('permissions.update');
-    Route::get('permissions/destroy/{id}', [PermissionController::class, 'destroyPermission'])->name('permissions.destroy');
+    // Manajemen Permissions
+    Route::get('/permissions', [PermissionController::class, 'index'])
+        ->name('permissions.index')
+        ->middleware('permission:view permissions');
+    Route::post('/permissions/store', [PermissionController::class, 'storePermission'])
+        ->name('permissions.store')
+        ->middleware('permission:create permission');
+    Route::post('/permissions/{id}/update', [PermissionController::class, 'updatePermission'])
+        ->name('permissions.update')
+        ->middleware('permission:update permission');
+    Route::get('/permissions/destroy/{id}', [PermissionController::class, 'destroyPermission'])
+        ->name('permissions.destroy')
+        ->middleware('permission:delete permission');
+
+    // Manajemen Kegiatan (Rafi)
+    Route::get('/kegiatan', [KegiatanController::class, 'index'])
+        ->name('kegiatan.index')
+        ->middleware('permission:view kegiatan');
+    Route::get('/kegiatan/create', [KegiatanController::class, 'create'])
+        ->name('kegiatan.create')
+        ->middleware('permission:create kegiatan');
+    Route::post('/kegiatan/create', [KegiatanController::class, 'store'])
+        ->name('kegiatan.store')
+        ->middleware('permission:create kegiatan');
+    Route::get('/kegiatan/edit/{kegiatan}', [KegiatanController::class, 'edit'])
+        ->name('kegiatan.edit')
+        ->middleware('permission:update kegiatan');
+    Route::post('/kegiatan/edit/{kegiatan}', [KegiatanController::class, 'update'])
+        ->name('kegiatan.update')
+        ->middleware('permission:update kegiatan');
+    Route::get('/kegiatan/delete/{kegiatan}', [KegiatanController::class, 'destroy'])
+        ->name('kegiatan.destroy')
+        ->middleware('permission:delete kegiatan');
+
+    // Manajemen Tim (Muqtafi)
+    Route::get('/team', [TeamController::class, 'index'])
+        ->name('team.index')
+        ->middleware('permission:view team');
+    Route::post('/team/store', [TeamController::class, 'store'])
+        ->name('team.store')
+        ->middleware('permission:create team');
+    Route::post('/team/update/{id}', [TeamController::class, 'update'])
+        ->name('team.update')
+        ->middleware('permission:update team');
+    Route::post('/team/destroy/{id}', [TeamController::class, 'destroy'])
+        ->name('team.destroy')
+        ->middleware('permission:delete team');
+
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
 
 // end nanda
 
 // septa
 
 // rofi
-
-// muqtafi
-Route::get('/team', [TeamController::class, 'index'])->name('team.index');
-Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
-Route::post('/team/update/{token}', [TeamController::class, 'update'])->name('team.update');
-Route::post('/team/destroy/{token}', [TeamController::class, 'destroy'])->name('team.destroy');

@@ -12,7 +12,7 @@ class PermissionController extends Controller
     {
         $datas = [
             'permissions' => Permission::all(),
-
+            'title' => 'Permissions',
         ];
 
 
