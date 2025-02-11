@@ -5,16 +5,27 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TeamController;
 
-
 // start nanda
 Route::middleware('guest')->group(function () {
-    Route::view('/', 'auth.login')->name('login');
-    Route::view('/register', 'auth.register');
+    Route::view('/login', 'auth.login')->name('login');
+    Route::view('/register', 'auth.register')->name('register');
     Route::post('/login', [AuthController::class, 'login']);
+
+    // Start Rofi
+    Route::controller(LandingController::class)->group(function () {
+        Route::get('/', 'home')->name('home');
+        Route::get('/tentangkami', 'tentangkami')->name('tentangkami');
+        Route::get('/kgiatan', 'kegiatan')->name('kegiatan');
+        Route::get('/servis', 'servis')->name('servis');
+        Route::get('/kontak', 'kontak')->name('kontak');
+        Route::get('/faq', 'faq')->name('faq');
+    });
+    // End Rofi
 });
 
 Route::middleware(['auth', 'role_permission'])->group(function () {
@@ -85,10 +96,8 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
         ->name('team.destroy')
         ->middleware('permission:delete team');
 
-
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
 
 // end nanda
 
