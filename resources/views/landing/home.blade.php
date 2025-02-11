@@ -3,6 +3,7 @@
 @extends('layout.template_landing')
 
 @section('content')
+  <!-- Banner Here -->
   <section class="banner__section bannerbg">
     <!--Mask-->
     <div class="banner__bgmask">
@@ -23,7 +24,8 @@
                   <span class="theme">Turbo</span> Main <span class="theme2">Community</span>
                 </span>
                 <p class="wow fadeInUp" data-wow-duration="2s">
-                  Komunitas web development berbasis PHP yang siap membantu kamu berkembang! Dapatkan pengalaman langsung,
+                  Komunitas web development berbasis PHP yang siap membantu kamu berkembang! Dapatkan pengalaman
+                  langsung,
                   bimbingan mentor, dan kesempatan untuk terlibat dalam proyek nyata.
                 </p>
                 <div class="btg__grp wow">
@@ -66,7 +68,34 @@
       </div>
     </div>
     <!--Container-->
+    <!--Elements-->
+    <div class="ball__element">
+      <img src="{{ asset('landing') }}/assets/img/elements/ball-element.png" alt="ball">
+    </div>
+    <div class="banner__mask">
+      <img src="{{ asset('landing') }}/assets/img/elements/shape-element1.png" alt="mask">
+    </div>
+    <div class="dark__mask d-none">
+      <img src="{{ asset('landing') }}/assets/img/elements/banner-shape1-dark.png" alt="mask">
+    </div>
+    <div class="light__element1">
+      <img src="{{ asset('landing') }}/assets/img/elements/light-elements.png" alt="light">
+    </div>
+    <div class="light__element2">
+      <img src="{{ asset('landing') }}/assets/img/elements/light-elements.png" alt="light">
+    </div>
+    <div class="light__element3">
+      <img src="{{ asset('landing') }}/assets/img/elements/light-elements.png" alt="light">
+    </div>
+    <div class="light__element4">
+      <img src="{{ asset('landing') }}/assets/img/elements/light-elements.png" alt="light">
+    </div>
+    <div class="light__element5">
+      <img src="{{ asset('landing') }}/assets/img/elements/light-elements.png" alt="light">
+    </div>
+    <!--Elements-->
   </section>
+  <!-- Banner End -->
 
   <section class="about__section bg__white pt-120 pb__60">
     <div class="container">
