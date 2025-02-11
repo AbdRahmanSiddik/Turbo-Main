@@ -10,6 +10,12 @@
   <link rel="shortcut icon" href="{{ asset('landing') }}/assets/img/logo/fav1.png">
   <!--main css-->
   <link rel="stylesheet" href="{{ asset('landing') }}/assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    textarea {
+      resize: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -132,7 +138,8 @@
               <div class="footer__widget">
                 <div class="widget__head">
                   <a href="index.html" class="footer__logo">
-                    <img src="{{ asset('landing') }}/assets/img/logo/logo1.png" alt="logo" style="filter: brightness(0) invert(1);">
+                    <img src="{{ asset('landing') }}/assets/img/logo/logo1.png" alt="logo"
+                      style="filter: brightness(0) invert(1);">
                   </a>
                 </div>
                 <p class="pb__20">
@@ -203,23 +210,17 @@
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
               <div class="footer__widget">
                 <div class="widget__head">
-                  <h4>
-                    Newsletter
-                  </h4>
+                  <h4>Ikuti Saluran WhatsApp Kami</h4>
                 </div>
                 <p class="pb__20">
-                  Subscribe our newsletter to get our latest update & news
+                  Klik tombol di bawah untuk bergabung dengan saluran WhatsApp kami dan dapatkan informasi terbaru!
                 </p>
-                <form action="#">
-                  <input type="email" placeholder="Your email address">
-                  <button type="submit" class="cmn--btn">
-                    <span>
-                      <i class="material-symbols-outlined">
-                        rocket_launch
-                      </i>
-                    </span>
-                  </button>
-                </form>
+                <a href="https://whatsapp.com/channel/0029VaR07k17Noa4bLsatV1U" class="cmn--btn" target="_blank">
+                  <span>
+                    <i class="material-symbols-outlined"> rocket_launch </i>
+                  </span>
+                  Ikuti Sekarang
+                </a>
               </div>
             </div>
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
@@ -230,38 +231,35 @@
                   </h4>
                 </div>
                 <div class="widget__link">
-                  <a href="javascript:void(0)" class="footer__contact__items">
+                  <a href="https://wa.me/6287879507355" class="footer__contact__items">
                     <span class="icon">
-                      <i class="material-symbols-outlined">
-                        add_call
-                      </i>
+                      <i class="material-symbols-outlined"> add_call </i>
                     </span>
                     <span class="fcontact__content">
-                      (406) 555-0120
+                      +62 878-7950-7355
                     </span>
                   </a>
-                  <a href="javascript:void(0)" class="footer__contact__items">
+
+                  <a href="mailto:turbo.mainn@gmail.com" class="footer__contact__items">
                     <span class="icon icontwo">
-                      <i class="material-symbols-outlined">
-                        mark_as_unread
-                      </i>
+                      <i class="material-symbols-outlined"> mark_as_unread </i>
                     </span>
                     <span class="fcontact__content">
-                      <span class="__cf_email__"
-                        data-cfemail="385d40595548545d785d40595548545d165b5755">[email&#160;protected]</span>
+                      turbo.mainn@gmail.com
                     </span>
                   </a>
-                  <a href="javascript:void(0)" class="footer__contact__items">
+
+                  <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Raya+Lenteng,+Aredake,+Batuan,+Kec.+Batuan,+Kabupaten+Sumenep,+Jawa+Timur"
+                    class="footer__contact__items" target="_blank">
                     <span class="icon iconthree">
-                      <span class="material-symbols-outlined">
-                        pin_drop
-                      </span>
+                      <span class="material-symbols-outlined"> pin_drop </span>
                     </span>
                     <span class="fcontact__content">
-                      Westheimer Rd. Santa Ana, Illinois
+                      Jl. Raya Lenteng, Aredake, Batuan, Kec. Batuan, Kabupaten Sumenep, Jawa Timur
                     </span>
                   </a>
                 </div>
+
               </div>
             </div>
           </div>
@@ -281,6 +279,32 @@
     <!--footer mask-->
   </footer>
   <!-- Footer End -->
+
+  @if (session('success'))
+    <script>
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: '{{ session('success') }}',
+      });
+    </script>
+  @endif
+
+  @if ($errors->any())
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        let errorMessages = "";
+        @foreach ($errors->all() as $error)
+          errorMessages += "- {{ $error }}\n";
+        @endforeach
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          html: `Ada kesalahan dalam pengisian form!<br><pre style="text-align: left; background-color: #f8f9fa; padding: 10px; border-radius: 5px;">${errorMessages}</pre>`,
+        });
+      });
+    </script>
+  @endif
 
   <!--Jquery 3 6 0 Min Js-->
   <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

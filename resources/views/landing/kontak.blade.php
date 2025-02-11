@@ -64,67 +64,63 @@
     <div class="container">
       <div class="section__header section__center pb__60">
         <h2>
-          Get in touch with us.
+          Hubungi Kami
         </h2>
         <p>
-          Fill up the form and our team will get back to you within 24 hours
+          Ada pertanyaan atau ingin bergabung dengan komunitas kami? Kirim pesan, dan tim kami akan segera merespons!
         </p>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="form_area">
-            <form id="form">
-              <div class="row g-4">
-                <div class="col-lg-6">
-                  <div class="form-control">
-                    <label for="Name">Name</label>
-                    <input type="text" id="Name" placeholder="Enter Your Mane...">
-                    <small>Error message</small>
+            <form id="form" action="{{ route('contact.send') }}" method="POST" class="p-4 rounded shadow bg-light">
+              @csrf
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-control p-3">
+                    <label for="name" class="fw-bold">Nama Lengkap</label>
+                    <input type="text" value="{{ old('name') }}" id="name" name="name"
+                      class="form-control mt-2" placeholder="Masukkan Nama Anda...">
+                    <small class="text-danger error-message"></small>
                   </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="form-control">
-                    <label for="semail">Email</label>
-                    <input type="email" id="semail" placeholder="Enter Your Email...">
-                    <small>Error message</small>
+                <div class="col-md-6">
+                  <div class="form-control p-3">
+                    <label for="email" class="fw-bold">Email</label>
+                    <input type="email" value="{{ old('email') }}" id="email" name="email"
+                      class="form-control mt-2" placeholder="Masukkan Email Anda...">
+                    <small class="text-danger error-message"></small>
                   </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="form-control">
-                    <label for="phone">Phone</label>
-                    <input type="number" id="phone" placeholder="Enter Your Number...">
-                    <small>Error message</small>
+                <div class="col-md-6">
+                  <div class="form-control p-3">
+                    <label for="phone" class="fw-bold">Nomor HP</label>
+                    <input type="number" value="{{ old('phone') }}" id="phone" name="phone"
+                      class="form-control mt-2" placeholder="Masukkan Nomor HP Anda...">
+                    <small class="text-danger error-message"></small>
                   </div>
                 </div>
-                <div class="col-lg-6">
-                  <label id="country">Country</label>
-                  <div class="select-wrapper">
-                    <select>
-                      <option value="1">Country...</option>
-                      <option value="1">....</option>
-                      <option value="1">....</option>
-                      <option value="1">....</option>
-                      <option value="1">....</option>
-                    </select>
+                <div class="col-md-6">
+                  <div class="form-control p-3">
+                    <label for="subject" class="fw-bold">Subjek</label>
+                    <input type="text" value="{{ old('subject') }}" id="subject" name="subject"
+                      class="form-control mt-2" placeholder="Masukkan Subjek Anda...">
+                    <small class="text-danger error-message"></small>
                   </div>
                 </div>
-                <div class="col-lg-12">
-                  <div class="form-control">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" cols="10" rows="5" placeholder="Enter Your Message..."></textarea>
-                    <small>Error message</small>
+                <div class="col-12">
+                  <div class="form-control p-3">
+                    <label for="message" class="fw-bold">Pesan</label>
+                    <textarea id="message" name="message" class="form-control mt-2" rows="5"
+                      placeholder="Tulis pesan Anda di sini...">{{ old('message') }}</textarea>
+                    <small class="text-danger error-message"></small>
                   </div>
                 </div>
-              </div>
-              <div class="submit__btn text-center mt-4">
-                <button type="submit" class="cmn--btn">
-                  <span>
-                    Send Message
-                  </span>
-                </button>
-              </div>
-              <div class="thank_you">
-                <p>Your Message is successfully send !</p>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">
+                    <i class="bi bi-send-fill"></i> Kirim Pesan
+                  </button>
+                </div>
               </div>
             </form>
           </div>
@@ -134,16 +130,16 @@
   </section>
   <!--Contact Section End-->
 
+
   <!--Contact help section-->
   <section class="need__help bg__white pt-120 pb-120">
     <!--container-->
     <div class="container">
       <div class="section__header section__center pb__60">
-        <h2>
-          Need more help?
-        </h2>
+        <h2>Butuh Bantuan?</h2>
         <p>
-          Queries, complaints and feedback. We will be happy to serve you
+          Ada pertanyaan, saran, atau ingin bergabung dengan komunitas kami?
+          Kami siap membantu Anda!
         </p>
       </div>
       <div class="row g-4">
@@ -156,13 +152,10 @@
             </div>
             <div class="cont">
               <h5>
-                Call Now
+                Contact Person
               </h5>
-              <a href="javacript:void(0)">
-                (907) 555-0101
-              </a>
-              <a href="javacript:void(0)">
-                (252) 555-0126
+              <a href="https://wa.me/6287879507355">
+                +62 878-7950-7355
               </a>
             </div>
           </div>
@@ -178,13 +171,9 @@
               <h5>
                 Email Address
               </h5>
-              <a href="javascript:void(0)">
+              <a href="mailto:turbo.mainn@gmail.com">
                 <span class="__cf_email__"
-                  data-cfemail="4a392b382b6429383f300a2f322b273a262f64292527">[email&#160;protected]</span>
-              </a>
-              <a href="javascript:void(0)">
-                <span class="__cf_email__"
-                  data-cfemail="6e0c070202401d0f000a0b1c1d2e0b160f031e020b400d0103">[email&#160;protected]</span>
+                  data-cfemail="4a392b382b6429383f300a2f322b273a262f64292527">turbo.mainn@gmail.com</span>
               </a>
             </div>
           </div>
@@ -200,11 +189,9 @@
               <h5>
                 Location
               </h5>
-              <a href="javacript:void(0)">
-                Royal Ln. Mesa, New Jersey 45463
-              </a>
-              <a href="javacript:void(0)">
-                Thornridge Cir. Shiloh, Hawaii 81063
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Jl.+Raya+Lenteng,+Aredake,+Batuan,+Kec.+Batuan,+Kabupaten+Sumenep,+Jawa+Timur">
+                Jl. Raya Lenteng, Aredake, Batuan, Kec. Batuan, Kabupaten Sumenep, Jawa Timur
               </a>
             </div>
           </div>

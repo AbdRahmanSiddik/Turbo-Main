@@ -23,6 +23,7 @@ Route::middleware('guest')->group(function () {
         Route::get('/kgiatan', 'kegiatan')->name('kegiatan');
         Route::get('/servis', 'servis')->name('servis');
         Route::get('/kontak', 'kontak')->name('kontak');
+        Route::post('/kontak/send', 'send')->name('contact.send');
         Route::get('/faq', 'faq')->name('faq');
     });
     // End Rofi
