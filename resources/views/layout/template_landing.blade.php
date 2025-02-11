@@ -143,25 +143,26 @@
                   </a>
                 </div>
                 <p class="pb__20">
-                  Artificial Intelligence (AI) and Machine Learning (ML) are closely related technologies that enable
-                  computers to learn from data and make predictions
+                  Turbo Main Community adalah wadah bagi para web developer berbasis PHP untuk belajar, berbagi, dan
+                  berkembang bersama.
+                  Bergabunglah dan jadilah bagian dari #KaryaNyataUntukUNIBA!
                 </p>
                 <ul class="social">
                   <li>
-                    <a href="javascript:void(0)" class="social__item">
+                    <a href="https://www.tiktok.com/@turbo.main?_t=ZS-8tpfs4k2BIl&_r=1" target="_blank" class="social__item">
                       <span class="icon">
-                        <img src="{{ asset('landing') }}/assets/img/svg-icon/facebook.svg" alt="svg">
+                        <img src="{{ asset('landing') }}/assets/img/svg-icon/tiktok-line.svg" alt="svg" style="width: 17px; height: auto; filter: invert(1);">
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="javascript:void(0)" class="social__item social__itemtwo">
+                    <a href="https://www.instagram.com/turbo_main?igsh=MmFnNDczZDk0aXM=" target="_blank" class="social__item social__itemfour">
                       <span class="icon">
                         <img src="{{ asset('landing') }}/assets/img/svg-icon/instagram.svg" alt="svg">
                       </span>
                     </a>
                   </li>
-                  <li>
+                  {{-- <li>
                     <a href="javascript:void(0)" class="social__item social__itemthree">
                       <span class="icon">
                         <img src="{{ asset('landing') }}/assets/img/svg-icon/twitter.svg" alt="svg">
@@ -174,11 +175,11 @@
                         <img src="{{ asset('landing') }}/assets/img/svg-icon/linkedin.svg" alt="svg">
                       </span>
                     </a>
-                  </li>
+                  </li> --}}
                 </ul>
               </div>
             </div>
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6">
               <div class="footer__widget">
                 <div class="widget__head">
                   <h4>
@@ -207,7 +208,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
               <div class="footer__widget">
                 <div class="widget__head">
                   <h4>Ikuti Saluran WhatsApp Kami</h4>
@@ -215,11 +216,11 @@
                 <p class="pb__20">
                   Klik tombol di bawah untuk bergabung dengan saluran WhatsApp kami dan dapatkan informasi terbaru!
                 </p>
-                <a href="https://whatsapp.com/channel/0029VaR07k17Noa4bLsatV1U" class="cmn--btn" target="_blank">
+                <a href="https://whatsapp.com/channel/0029VaR07k17Noa4bLsatV1U" class="btn btn-outline-primary" target="_blank">
+                  Ikuti Sekarang
                   <span>
                     <i class="material-symbols-outlined"> rocket_launch </i>
                   </span>
-                  Ikuti Sekarang
                 </a>
               </div>
             </div>
