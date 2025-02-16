@@ -1,18 +1,15 @@
 <?php
 
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-<<<<<<< HEAD
-use App\Http\Controllers\PendaftaranController;
-use App\Http\Controllers\UsersManagement;
-use App\Http\Controllers\RolePermissionController;
-=======
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TeamController;
->>>>>>> 52018e4cc16cb47c2759b494580d69cc3007d480
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\UsersManagement;
+use App\Http\Controllers\RolePermissionController;
 
 // rafi
 Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan.index');
@@ -58,8 +55,8 @@ Route::middleware(['auth', 'role:peserta', 'role_permission'])->group(function (
     Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('kegiatan.daftar');
     Route::get('/detail/pendaftaran/{kegiatan}', [PendaftaranController::class, 'detail'])->name('detail.pendaftaran');
     Route::post('/detail/pendaftaran/{id}', [PendaftaranController::class, 'update'])->name('update.tim');
-
 });
+
 
 // rofi
 

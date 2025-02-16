@@ -26,7 +26,7 @@
             class="relative flex flex-col items-center gap-5 rounded-lg border border-dashed border-slate-300/60 p-3 sm:flex-row mb-2">
             <div>
               <div class="image-fit h-24 w-40 rounded-md border-[3px] border-slate-200/70">
-                <img class="rounded-md saturate-[0.7]" src="dist/images/projects/project10-400x400.jpg"
+                <img class="rounded-md saturate-[0.7]" src="{{ asset('img/kegiatan'.$get->thumbnail) }}"
                   alt="Tailwise - Admin Dashboard Template">
               </div>
             </div>
