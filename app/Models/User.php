@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class, 'user_id', 'id');
     }
+
+    public function pendaftaran()
+    {
+        return $this->belongsToMany(Kegiatan::class, 'pendaftarans', 'peserta_id', 'kegiatan_id', 'id', 'id_kegiatan', 'kegiatans');
+    }
 }

@@ -74,15 +74,15 @@
                         </select>
                       </div>
                       <!-- Tombol Simpan -->
-                      <button data-tw-merge
+                      <button data-tw-merge type="submit"
                         class="py-2 px-3 rounded-md font-medium bg-primary border-primary text-white w-24">
                         Simpan
                       </button>
                       <!-- Tombol Hapus -->
-                      <button data-tw-merge
+                      <a data-tw-merge href="{{ route('delete.pendaftaran', $get->token_pendaftaran) }}"
                         class="py-2 px-3 rounded-md font-medium bg-danger border-danger text-white w-24">
                         Hapus
-                      </button>
+                      </a>
                     </div>
                   </form>
                 </td>

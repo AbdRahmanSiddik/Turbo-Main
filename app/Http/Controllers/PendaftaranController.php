@@ -14,6 +14,7 @@ class PendaftaranController extends Controller
     {
         $data = [
             'kegiatan' => Kegiatan::all(),
+            'title' => 'Pendaftaran'
         ];
         return view('admin.pendaftaran.pendaftaran-view', $data);
     }
@@ -44,6 +45,7 @@ class PendaftaranController extends Controller
         $data = [
             'kegiatan' => $kegiatan,
             'tim' => Team::all(),
+            'title' => 'Detail Pendaftaran'
         ];
         return view('admin.pendaftaran.detail-pendaftaran', $data);
     }
@@ -59,12 +61,15 @@ class PendaftaranController extends Controller
         Pendaftaran::where('token_pendaftaran', $id)->update([
             'team_id' => $tim,
         ]);
+        $pendaftaran = Pendaftaran::with('kegiatan')->where('token_pendaftaran', $id)->first();
 
-        return redirect('/pendaftaran')->with('success', 'Tim Berhasil ditambahkan!');
+        return redirect('/detail/pendaftaran/'.$pendaftaran->kegiatan->token_kegiatan)->with('success', 'Tim Berhasil ditambahkan!');
     }
 
     public function destroy(Pendaftaran $pendaftaran)
     {
-        //
+        // dd($pendaftaran);
+        Pendaftaran::where('token_pendaftaran', $pendaftaran->token_pendaftaran)->delete();
+        return redirect()->back()->with('success', 'Pendaftar Berhasil Dihapus');
     }
 }

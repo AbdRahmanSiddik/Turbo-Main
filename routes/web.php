@@ -9,6 +9,7 @@ use App\Http\Controllers\TeamController;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\UsersManagement;
 use App\Http\Controllers\RolePermissionController;
@@ -109,17 +110,19 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
     Route::post('/foto/{user}', [ProfileController::class, 'foto'])->name('foto.update');
     Route::get('/profile/password', [ProfileController::class, 'index'])->name('profile.password');
     Route::post('/profile/password/{user}', [ProfileController::class, 'changePassword'])->name('change.password');
+
+    // septa start
+    Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran')->middleware('permission:view pendaftaran');
+    Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('kegiatan.daftar')->middleware('permission:create pendaftaran');
+    Route::get('/detail/pendaftaran/{kegiatan}', [PendaftaranController::class, 'detail'])->name('detail.pendaftaran')->middleware('permission:view list-pendaftaran');
+    Route::post('/detail/pendaftaran/{id}', [PendaftaranController::class, 'update'])->name('update.tim')->middleware('permission:add team_peserta');
+    Route::get('/pendaftaran/hapus/{pendaftaran}', [PendaftaranController::class, 'destroy'])->name('delete.pendaftaran')->middleware('permission:delete pendaftaran');
+    // septa end
 });
 
 // end nanda
 
 // septa
-Route::middleware(['auth', 'role:peserta', 'role_permission'])->group(function () {
-    Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
-    Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('kegiatan.daftar');
-    Route::get('/detail/pendaftaran/{kegiatan}', [PendaftaranController::class, 'detail'])->name('detail.pendaftaran');
-    Route::post('/detail/pendaftaran/{id}', [PendaftaranController::class, 'update'])->name('update.tim');
-});
 
 
 // rofi

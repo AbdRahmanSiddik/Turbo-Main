@@ -26,7 +26,7 @@
             class="relative flex flex-col items-center gap-5 rounded-lg border border-dashed border-slate-300/60 p-3 sm:flex-row mb-2">
             <div>
               <div class="image-fit h-24 w-40 rounded-md border-[3px] border-slate-200/70">
-                <img class="rounded-md saturate-[0.7]" src="{{ asset('img/kegiatan'.$get->thumbnail) }}"
+                <img class="rounded-md saturate-[0.7]" src="{{ asset('img/kegiatan/' . $get->thumbnail) }}"
                   alt="Tailwise - Admin Dashboard Template">
               </div>
             </div>
@@ -66,13 +66,49 @@
               </div>
             </div>
             <div class="mt-4 ml-auto">
-              <form action="{{ route('kegiatan.daftar') }}" method="POST">
-                @csrf
-                <input type="hidden" name="peserta_id" value="{{ auth()->user()->id }}">
-                <input type="hidden" name="kegiatan_id" value="{{ $get->id_kegiatan }}">
-                <button type="submit"
+{{-- @dd(auth()->user()->pendaftaran) --}}
+              @if (auth()->user()->pendaftaran->contains('id_kegiatan', $get->id_kegiatan))
+                <button disabled
+                  class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed border-secondary text-slate-500 dark:border-darkmode-100/40 dark:text-slate-300 [&:hover:not(:disabled)]:bg-secondary/20 [&:hover:not(:disabled)]:dark:bg-darkmode-100/10 mr-1 w-24 mr-1 w-24">Sudah
+                  Mendaftar</button>
+              @else
+                <button type="button" data-tw-toggle="modal"
+                  data-tw-target="#delete-modal-preview{{ $get->token_kegiatan }}"
                   class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary w-24">Daftar</button>
-              </form>
+              @endif
+              <!-- BEGIN: Modal Content -->
+              <div data-tw-backdrop="" aria-hidden="true" tabindex="-1"
+                id="delete-modal-preview{{ $get->token_kegiatan }}"
+                class="modal group bg-gradient-to-b from-theme-1/50 via-theme-2/50 to-black/50 transition-[visibility,opacity] w-screen h-screen fixed left-0 top-0 [&:not(.show)]:duration-[0s,0.2s] [&:not(.show)]:delay-[0.2s,0s] [&:not(.show)]:invisible [&:not(.show)]:opacity-0 [&.show]:visible [&.show]:opacity-100 [&.show]:duration-[0s,0.4s]">
+                <div data-tw-merge
+                  class="w-[90%] mx-auto bg-white relative rounded-md shadow-md transition-[margin-top,transform] duration-[0.4s,0.3s] -mt-16 group-[.show]:mt-16 group-[.modal-static]:scale-[1.05] dark:bg-darkmode-600 sm:w-[460px]">
+                  <div class="p-5 text-center">
+                    {{-- <i data-tw-merge data-lucide="x-circle"
+                      class="stroke-[1] w-5 h-5 mx-auto mt-3 h-16 w-16 text-danger mx-auto mt-3 h-16 w-16 text-danger"></i> --}}
+                    <img src="{{ asset('landing/assets/img/logo/fav1.png') }}" alt="" style="margin: 10px auto;"
+                      width="150px">
+                    <div class="mt-5 text-3xl">{{ $get->nama_kegiatan }}</div>
+                    <div class="mt-2 text-slate-500">
+                      Anda yakin ingin mengikuti Pelatihan ini? <br>
+                      Proses ini tidak dapat dibatalkan.
+                    </div>
+                  </div>
+                  <div class="px-5 pb-8 text-center">
+
+                    <form action="{{ route('kegiatan.daftar') }}" method="POST">
+                      @csrf
+                      <input type="hidden" name="peserta_id" value="{{ auth()->user()->id }}">
+                      <input type="hidden" name="kegiatan_id" value="{{ $get->id_kegiatan }}">
+                      <button data-tw-merge data-tw-dismiss="modal" type="button"
+                        class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-danger border-danger text-white dark:border-danger w-24 w-24">Cancel</button>
+                      {{-- @dd(auth()->user()->pendaftaran) --}}
+                      <button data-tw-merge type="submit"
+                        class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary w-24">Daftar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- END: Modal Content -->
             </div>
           </div>
         @endforeach
