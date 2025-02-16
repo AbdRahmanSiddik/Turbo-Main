@@ -51,7 +51,7 @@
       @can('view team')
         <li>
           <a href="{{ route('team.index') }}" class="side-menu__link">
-            <i data-tw-merge="" data-lucide="calendar" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+            <i data-tw-merge="" data-lucide="snail" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
             <div class="side-menu__link__title">Team</div>
             {{-- <div class="side-menu__link__badge">
             </div> --}}

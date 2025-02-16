@@ -53,10 +53,6 @@
                                         Mentor
                                     </td>
                                     <td
-                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
-                                        Deskripsi
-                                    </td>
-                                    <td
                                         class="px-5 border-b dark:border-darkmode-300 w-36 border-t border-slate-200/60 bg-slate-50 py-4 text-center font-medium text-slate-500">
                                         Action
                                     </td>
@@ -86,10 +82,6 @@
                                         <td
                                             class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
                                             <div class="whitespace-nowrap">{{ $team->mentor->name }}</div>
-                                        </td>
-                                        <td
-                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                                            <div class="whitespace-nowrap">{{ $team->deskripsi }}</div>
                                         </td>
                                         <td data-tw-merge=""
                                             class="px-5 border-b dark:border-darkmode-300 relative border-dashed py-4 dark:bg-darkmode-600">

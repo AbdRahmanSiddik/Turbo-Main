@@ -89,6 +89,6 @@ class TeamController extends Controller
 
         Team::where('token_team', $token)->update($validated);
 
-        return redirect()->route('team.index');
+        return redirect()->route('team.index')->with('success', 'Team berhasil diUpdate!');
     }
 }
