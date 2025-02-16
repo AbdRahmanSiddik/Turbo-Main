@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TeamController;
 
@@ -14,6 +15,7 @@ use App\Http\Controllers\TeamController;
 Route::middleware('guest')->group(function () {
     Route::view('/login', 'auth.login')->name('login');
     Route::view('/register', 'auth.register')->name('register');
+    Route::post('/register', [AuthController::class, 'register'])->name('register.action');
     Route::post('/login', [AuthController::class, 'login']);
 
     // Start Rofi
@@ -98,6 +100,11 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
         ->middleware('permission:delete team');
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    // profile
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/foto/{user}', [ProfileController::class, 'foto'])->name('foto.update');
 });
 
 // end nanda

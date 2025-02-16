@@ -5,14 +5,8 @@
         <a class="flex items-center transition-[margin] duration-300 group-[.side-menu--collapsed.side-menu--on-hover]:xl:ml-0 group-[.side-menu--collapsed]:xl:ml-4"
             href="#">
             <div
-                class="transition-transform ease-in-out group-[.side-menu--collapsed.side-menu--on-hover]:xl:-rotate-180">
-                <div class="relative h-[18px] w-[18px] -rotate-45 [&_div]:bg-white">
-                    <div class="absolute inset-y-0 left-0 my-auto h-[75%] w-[21%] rounded-full opacity-50">
-                    </div>
-                    <div class="absolute inset-0 m-auto h-[120%] w-[21%] rounded-full"></div>
-                    <div class="absolute inset-y-0 right-0 my-auto h-[75%] w-[21%] rounded-full opacity-50">
-                    </div>
-                </div>
+                class="">
+                <img src="{{ asset('landing/assets/img/logo/fav2.png') }}" alt="Turbo">
             </div>
             <div
                 class="ml-3.5 font-medium text-white transition-opacity group-[.side-menu--collapsed.side-menu--on-hover]:xl:opacity-100 group-[.side-menu--collapsed]:xl:opacity-0">

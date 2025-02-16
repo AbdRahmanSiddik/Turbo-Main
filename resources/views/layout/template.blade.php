@@ -13,6 +13,7 @@
     <meta name="keywords"
         content="admin template, Tailwise Admin Template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="LEFT4CODE">
+    <link rel="shortcut icon" href="{{ asset('landing/assets/img/logo/fav2.png') }}" type="image/x-icon">
     <title>Turbo Main » {{ $title }}</title>
     <!-- BEGIN: CSS Assets-->
     @include('components.style')
@@ -722,8 +723,8 @@
                                 <div data-tw-merge="" data-tw-placement="bottom-end" class="dropdown relative ml-5">
                                     <button data-tw-toggle="dropdown" aria-expanded="false"
                                         class="cursor-pointer image-fit h-[36px] w-[36px] overflow-hidden rounded-full border-[3px] border-slate-200/70"><img
-                                            src="{{ asset('assets') }}/dist/images/users/user9-50x50.jpg"
-                                            alt="Tailwise - Admin Dashboard Template">
+                                            src="{{ asset('img/profile/'.(auth()->user()->profile->foto == 'default.png' ? '/10302971.png' : auth()->user()->profile->foto   )) }}"
+                                            alt="Turbo Main">
                                     </button>
                                     <div data-transition="" data-selector=".show"
                                         data-enter="transition-all ease-linear duration-150"
@@ -735,36 +736,12 @@
                                         class="dropdown-menu absolute z-[9999] hidden">
                                         <div data-tw-merge=""
                                             class="dropdown-content rounded-md border-transparent bg-white p-2 shadow-[0px_3px_10px_#00000017] dark:border-transparent dark:bg-darkmode-600 mt-1 w-56">
-                                            <a data-tw-toggle="modal" data-tw-target="#switch-account"
-                                                class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
-                                                    data-tw-merge="" data-lucide="toggle-left"
-                                                    class="stroke-[1] mr-2 h-4 w-4"></i>
-                                                Switch Account</a>
-                                            <div class="h-px my-2 -mx-2 bg-slate-200/60 dark:bg-darkmode-400">
-                                            </div>
-                                            <a href="razor-settings-connected-services.html"
-                                                class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
-                                                    data-tw-merge="" data-lucide="settings"
-                                                    class="stroke-[1] mr-2 h-4 w-4"></i>
-                                                Connected Services</a>
-                                            <a href="razor-settings-email-settings.html"
-                                                class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
-                                                    data-tw-merge="" data-lucide="inbox"
-                                                    class="stroke-[1] mr-2 h-4 w-4"></i>
-                                                Email Settings</a>
-                                            <a href="razor-settings-security.html"
-                                                class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
-                                                    data-tw-merge="" data-lucide="lock"
-                                                    class="stroke-[1] mr-2 h-4 w-4"></i>
-                                                Reset Password</a>
-                                            <div class="h-px my-2 -mx-2 bg-slate-200/60 dark:bg-darkmode-400">
-                                            </div>
-                                            <a href="razor-settings.html"
+                                            <a href="{{ route('profile') }}"
                                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
                                                     data-tw-merge="" data-lucide="users"
                                                     class="stroke-[1] mr-2 h-4 w-4"></i>
                                                 Profile Info</a>
-                                            <a href="razor-login.html"
+                                            <a href="{{ route('logout') }}"
                                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
                                                     data-tw-merge="" data-lucide="power"
                                                     class="stroke-[1] mr-2 h-4 w-4"></i>
@@ -1727,160 +1704,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div data-tw-backdrop="" aria-hidden="true" tabindex="-1" id="switch-account"
-                                class="modal group bg-gradient-to-b from-theme-1/50 via-theme-2/50 to-black/50 transition-[visibility,opacity] w-screen h-screen fixed left-0 top-0 [&:not(.show)]:duration-[0s,0.2s] [&:not(.show)]:delay-[0.2s,0s] [&:not(.show)]:invisible [&:not(.show)]:opacity-0 [&.show]:visible [&.show]:opacity-100 [&.show]:duration-[0s,0.4s]">
-                                <div data-tw-merge=""
-                                    class="w-[90%] mx-auto bg-white relative rounded-md shadow-md transition-[margin-top,transform] duration-[0.4s,0.3s] -mt-16 group-[.show]:mt-16 group-[.modal-static]:scale-[1.05] dark:bg-darkmode-600 sm:w-[460px]">
-                                    <div
-                                        class="flex items-center px-5 py-3 border-b border-slate-200/60 dark:border-darkmode-400 h-14 justify-center">
-                                        <h2 class="text-base font-medium">Switch Account</h2>
-                                    </div>
-                                    <div data-tw-merge="" class="p-5 px-2.5 pb-4 pt-3.5">
-                                        <div class="flex flex-col gap-1.5">
-                                            <div
-                                                class="flex cursor-pointer items-center rounded-lg px-2.5 py-1 hover:bg-slate-100">
-                                                <div
-                                                    class="image-fit h-11 w-11 overflow-hidden rounded-full border-[3px] border-slate-200/70">
-                                                    <img src="{{ asset('assets') }}/dist/images/users/user3-50x50.jpg"
-                                                        alt="Tailwise - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3.5">
-                                                    <div class="font-medium">Leonardo DiCaprio</div>
-                                                    <div class="mt-0.5 text-xs text-slate-500">
-                                                        leonardo.dicaprio@left4code.com
-                                                    </div>
-                                                </div>
-                                                <div class="relative ml-auto h-7 w-7">
-                                                    <input data-tw-merge="" checked="" type="checkbox"
-                                                        class="transition-all duration-100 ease-in-out shadow-sm border-slate-200 cursor-pointer rounded focus:ring-4 focus:ring-offset-0 focus:ring-primary focus:ring-opacity-20 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&[type='radio']]:checked:bg-primary [&[type='radio']]:checked:border-primary [&[type='radio']]:checked:border-opacity-10 [&[type='checkbox']]:checked:bg-primary [&[type='checkbox']]:checked:border-primary [&[type='checkbox']]:checked:border-opacity-10 [&:disabled:not(:checked)]:bg-slate-100 [&:disabled:not(:checked)]:cursor-not-allowed [&:disabled:not(:checked)]:dark:bg-darkmode-800/50 [&:disabled:checked]:opacity-70 [&:disabled:checked]:cursor-not-allowed [&:disabled:checked]:dark:bg-darkmode-800/50 peer absolute z-10 h-full w-full opacity-0"
-                                                        id="switch-account-0" value="switch-account">
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1 bg-theme-1/80 text-white opacity-0 transition-all peer-checked:opacity-100">
-                                                        <i data-tw-merge="" data-lucide="check"
-                                                            class="h-3 w-3 stroke-[1.5]"></i>
-                                                    </div>
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1/20 bg-theme-1/5 text-primary transition-all peer-checked:opacity-0 peer-hover:bg-theme-1/10">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="flex cursor-pointer items-center rounded-lg px-2.5 py-1 hover:bg-slate-100">
-                                                <div
-                                                    class="image-fit h-11 w-11 overflow-hidden rounded-full border-[3px] border-slate-200/70">
-                                                    <img src="{{ asset('assets') }}/dist/images/users/user6-50x50.jpg"
-                                                        alt="Tailwise - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3.5">
-                                                    <div class="font-medium">Jennifer Lawrence</div>
-                                                    <div class="mt-0.5 text-xs text-slate-500">
-                                                        jennifer.lawrence@left4code.com
-                                                    </div>
-                                                </div>
-                                                <div class="relative ml-auto h-7 w-7">
-                                                    <input data-tw-merge="" type="checkbox"
-                                                        class="transition-all duration-100 ease-in-out shadow-sm border-slate-200 cursor-pointer rounded focus:ring-4 focus:ring-offset-0 focus:ring-primary focus:ring-opacity-20 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&[type='radio']]:checked:bg-primary [&[type='radio']]:checked:border-primary [&[type='radio']]:checked:border-opacity-10 [&[type='checkbox']]:checked:bg-primary [&[type='checkbox']]:checked:border-primary [&[type='checkbox']]:checked:border-opacity-10 [&:disabled:not(:checked)]:bg-slate-100 [&:disabled:not(:checked)]:cursor-not-allowed [&:disabled:not(:checked)]:dark:bg-darkmode-800/50 [&:disabled:checked]:opacity-70 [&:disabled:checked]:cursor-not-allowed [&:disabled:checked]:dark:bg-darkmode-800/50 peer absolute z-10 h-full w-full opacity-0"
-                                                        id="switch-account-1" value="switch-account">
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1 bg-theme-1/80 text-white opacity-0 transition-all peer-checked:opacity-100">
-                                                        <i data-tw-merge="" data-lucide="check"
-                                                            class="h-3 w-3 stroke-[1.5]"></i>
-                                                    </div>
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1/20 bg-theme-1/5 text-primary transition-all peer-checked:opacity-0 peer-hover:bg-theme-1/10">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="flex cursor-pointer items-center rounded-lg px-2.5 py-1 hover:bg-slate-100">
-                                                <div
-                                                    class="image-fit h-11 w-11 overflow-hidden rounded-full border-[3px] border-slate-200/70">
-                                                    <img src="{{ asset('assets') }}/dist/images/users/user9-50x50.jpg"
-                                                        alt="Tailwise - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3.5">
-                                                    <div class="font-medium">Denzel Washington</div>
-                                                    <div class="mt-0.5 text-xs text-slate-500">
-                                                        denzel.washington@left4code.com
-                                                    </div>
-                                                </div>
-                                                <div class="relative ml-auto h-7 w-7">
-                                                    <input data-tw-merge="" type="checkbox"
-                                                        class="transition-all duration-100 ease-in-out shadow-sm border-slate-200 cursor-pointer rounded focus:ring-4 focus:ring-offset-0 focus:ring-primary focus:ring-opacity-20 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&[type='radio']]:checked:bg-primary [&[type='radio']]:checked:border-primary [&[type='radio']]:checked:border-opacity-10 [&[type='checkbox']]:checked:bg-primary [&[type='checkbox']]:checked:border-primary [&[type='checkbox']]:checked:border-opacity-10 [&:disabled:not(:checked)]:bg-slate-100 [&:disabled:not(:checked)]:cursor-not-allowed [&:disabled:not(:checked)]:dark:bg-darkmode-800/50 [&:disabled:checked]:opacity-70 [&:disabled:checked]:cursor-not-allowed [&:disabled:checked]:dark:bg-darkmode-800/50 peer absolute z-10 h-full w-full opacity-0"
-                                                        id="switch-account-2" value="switch-account">
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1 bg-theme-1/80 text-white opacity-0 transition-all peer-checked:opacity-100">
-                                                        <i data-tw-merge="" data-lucide="check"
-                                                            class="h-3 w-3 stroke-[1.5]"></i>
-                                                    </div>
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1/20 bg-theme-1/5 text-primary transition-all peer-checked:opacity-0 peer-hover:bg-theme-1/10">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="flex cursor-pointer items-center rounded-lg px-2.5 py-1 hover:bg-slate-100">
-                                                <div
-                                                    class="image-fit h-11 w-11 overflow-hidden rounded-full border-[3px] border-slate-200/70">
-                                                    <img src="{{ asset('assets') }}/dist/images/users/user4-50x50.jpg"
-                                                        alt="Tailwise - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3.5">
-                                                    <div class="font-medium">Angelina Jolie</div>
-                                                    <div class="mt-0.5 text-xs text-slate-500">
-                                                        angelina.jolie@left4code.com
-                                                    </div>
-                                                </div>
-                                                <div class="relative ml-auto h-7 w-7">
-                                                    <input data-tw-merge="" type="checkbox"
-                                                        class="transition-all duration-100 ease-in-out shadow-sm border-slate-200 cursor-pointer rounded focus:ring-4 focus:ring-offset-0 focus:ring-primary focus:ring-opacity-20 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&[type='radio']]:checked:bg-primary [&[type='radio']]:checked:border-primary [&[type='radio']]:checked:border-opacity-10 [&[type='checkbox']]:checked:bg-primary [&[type='checkbox']]:checked:border-primary [&[type='checkbox']]:checked:border-opacity-10 [&:disabled:not(:checked)]:bg-slate-100 [&:disabled:not(:checked)]:cursor-not-allowed [&:disabled:not(:checked)]:dark:bg-darkmode-800/50 [&:disabled:checked]:opacity-70 [&:disabled:checked]:cursor-not-allowed [&:disabled:checked]:dark:bg-darkmode-800/50 peer absolute z-10 h-full w-full opacity-0"
-                                                        id="switch-account-3" value="switch-account">
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1 bg-theme-1/80 text-white opacity-0 transition-all peer-checked:opacity-100">
-                                                        <i data-tw-merge="" data-lucide="check"
-                                                            class="h-3 w-3 stroke-[1.5]"></i>
-                                                    </div>
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1/20 bg-theme-1/5 text-primary transition-all peer-checked:opacity-0 peer-hover:bg-theme-1/10">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="flex cursor-pointer items-center rounded-lg px-2.5 py-1 hover:bg-slate-100">
-                                                <div
-                                                    class="image-fit h-11 w-11 overflow-hidden rounded-full border-[3px] border-slate-200/70">
-                                                    <img src="{{ asset('assets') }}/dist/images/users/user2-50x50.jpg"
-                                                        alt="Tailwise - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3.5">
-                                                    <div class="font-medium">Meryl Streep</div>
-                                                    <div class="mt-0.5 text-xs text-slate-500">
-                                                        meryl.streep@left4code.com
-                                                    </div>
-                                                </div>
-                                                <div class="relative ml-auto h-7 w-7">
-                                                    <input data-tw-merge="" type="checkbox"
-                                                        class="transition-all duration-100 ease-in-out shadow-sm border-slate-200 cursor-pointer rounded focus:ring-4 focus:ring-offset-0 focus:ring-primary focus:ring-opacity-20 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&[type='radio']]:checked:bg-primary [&[type='radio']]:checked:border-primary [&[type='radio']]:checked:border-opacity-10 [&[type='checkbox']]:checked:bg-primary [&[type='checkbox']]:checked:border-primary [&[type='checkbox']]:checked:border-opacity-10 [&:disabled:not(:checked)]:bg-slate-100 [&:disabled:not(:checked)]:cursor-not-allowed [&:disabled:not(:checked)]:dark:bg-darkmode-800/50 [&:disabled:checked]:opacity-70 [&:disabled:checked]:cursor-not-allowed [&:disabled:checked]:dark:bg-darkmode-800/50 peer absolute z-10 h-full w-full opacity-0"
-                                                        id="switch-account-4" value="switch-account">
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1 bg-theme-1/80 text-white opacity-0 transition-all peer-checked:opacity-100">
-                                                        <i data-tw-merge="" data-lucide="check"
-                                                            class="h-3 w-3 stroke-[1.5]"></i>
-                                                    </div>
-                                                    <div
-                                                        class="absolute inset-0 m-auto flex h-6 w-6 items-center justify-center rounded-full border border-theme-1/20 bg-theme-1/5 text-primary transition-all peer-checked:opacity-0 peer-hover:bg-theme-1/10">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="px-5 py-3 text-right border-t border-slate-200/60 dark:border-darkmode-400 flex h-14 items-center justify-center text-center">
-                                        <a class="-mt-1 block text-primary" href="#">
-                                            Login into an Existing Account
-                                        </a></div>
                                 </div>
                             </div>
                             <!-- END: Notification & User Menu -->

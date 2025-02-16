@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id('id_profile');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('token_user', 16);
-            $table->string('alamat');
-            $table->string('telepon');
-            $table->string('foto');
+            $table->string('alamat')->nullable();
+            $table->string('telepon')->nullable();
+            $table->string('foto')->default('default.png');
             $table->timestamps();
         });
     }
