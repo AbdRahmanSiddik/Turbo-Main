@@ -15,10 +15,13 @@ class TeamController extends Controller
         $mentors = User::with('roles')->whereHas('roles', function ($query) {
             $query->where('name', 'mentor');
         })->get();
-        return view('admin.team.page', compact('teams', 'mentors'));
+        $title = 'Team';
+
+        return view('admin.team.page', compact('teams', 'mentors', 'title'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             'nama_team' => 'required|string|max:255',
             'mentor_id' => 'required|exists:users,id',
@@ -41,7 +44,8 @@ class TeamController extends Controller
         return redirect()->route('team.index')->with('success', 'Team berhasil ditambahkan!');
     }
 
-    public function destroy($token){
+    public function destroy($token)
+    {
         $team = Team::where('token_team', $token)->first();
         if ($team) {
             $avatarPath = public_path('img/team/' . $team->avatar);
@@ -53,7 +57,8 @@ class TeamController extends Controller
         return redirect()->route('team.index')->with('success', 'Team berhasil dihapus!');
     }
 
-    public function update(Request $request, $token){
+    public function update(Request $request, $token)
+    {
         $team = Team::where('token_team', $token)->first();
 
         $validated = $request->validate([
@@ -73,7 +78,7 @@ class TeamController extends Controller
             if (file_exists($avatarPath)) {
                 unlink($avatarPath);
             }
-        }else{
+        } else {
             $validated['avatar'] = $team->avatar;
         }
 
@@ -84,6 +89,6 @@ class TeamController extends Controller
 
         Team::where('token_team', $token)->update($validated);
 
-        return redirect()->route('team.index');
+        return redirect()->route('team.index')->with('success', 'Team berhasil diUpdate!');
     }
 }

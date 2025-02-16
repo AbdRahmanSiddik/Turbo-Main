@@ -76,12 +76,57 @@ class KegiatanController extends Controller
 
     public function update(Request $request, Kegiatan $kegiatan)
     {
-        // Kegiatan::where('id', '')->update(['kolom' => 'isinya']);
+        // dd($request->all());
 
+        // Periksa apakah ada file yang diunggah
+        if ($request->hasFile('thumbnail')) {
+            // Hapus file lama jika ada
+            if ($kegiatan->thumbnail && file_exists(public_path('img/kegiatan/' . $kegiatan->thumbnail))) {
+                unlink(public_path('img/kegiatan/' . $kegiatan->thumbnail));
+            }
+
+            $token = uniqid();
+
+            // Simpan file baru
+            $file = $request->file('thumbnail');
+            $nama_file = $token . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('img/kegiatan'), $nama_file);
+
+            // Simpan nama file ke database
+            $kegiatan->thumbnail = $nama_file;
+        }
+
+        // Tentukan status berdasarkan tanggal
+        $tanggalHariIni = date('Y-m-d');
+        if ($tanggalHariIni < $request->tanggal_mulai) {
+            $status = 'akan_datang';
+        } elseif ($tanggalHariIni > $request->tanggal_akhir) {
+            $status = 'selesai';
+        } else {
+            $status = 'dimulai';
+        }
+
+        // Update data kegiatan
+        $kegiatan->update([
+            'token_kegiatan' => Str::random(16),
+            'nama_kegiatan' => $request->nama_kegiatan,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_akhir' => $request->tanggal_akhir,
+            'deskripsi' => $request->deskripsi,
+            'status' => $status,
+        ]);
+
+        return redirect()->route('kegiatan.index')->with('success', 'Kegiatan berhasil diperbarui');
     }
 
     public function destroy(Kegiatan $kegiatan)
     {
-        //
+        // Hapus file thumbnail jika ada
+        if ($kegiatan->thumbnail && file_exists(public_path('img/kegiatan/' . $kegiatan->thumbnail))) {
+            unlink(public_path('img/kegiatan/' . $kegiatan->thumbnail));
+        }
+
+        $kegiatan->delete();
+        return redirect()->route('kegiatan.index')->with('success', 'Kegiatan berhasil dihapus');
     }
 }

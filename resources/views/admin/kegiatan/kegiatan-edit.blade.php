@@ -45,7 +45,7 @@
                                     <div class="mt-4 flex flex-col gap-3.5 px-5 py-2">
                                         <div class="preview relative [&.hide]:overflow-hidden [&.hide]:h-0">
                                             <!-- BEGIN: Validation Form -->
-                                            <form class="validate-form" action="{{ route('kegiatan.store') }}"
+                                            <form class="validate-form" action="{{ route('kegiatan.update', $kegiatan->token_kegiatan) }}"
                                                 method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="input-form [&.has-error_.form-control]:border-danger">
@@ -114,7 +114,8 @@
                                                             <input type="file" accept="image/*" id="input-file"
                                                                 name="thumbnail" hidden>
                                                             <div id="image-view">
-                                                                <img src="{{ asset('img/kegiatan/' . $kegiatan->thumbnail) }}">
+                                                                <img
+                                                                    src="{{ asset('img/kegiatan/' . $kegiatan->thumbnail) }}">
                                                                 <p>Drag here</p>
                                                             </div>
                                                         </label>

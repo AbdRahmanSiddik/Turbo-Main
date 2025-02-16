@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -67,6 +69,10 @@ class AuthController extends Controller
 
         // Assign default role to the user
         $user->assignRole('peserta');
+        Profile::create([
+            'user_id' => $user->id,
+            'token_user' => Str::random(16),
+        ]);
 
         Auth::login($user);
 
@@ -78,6 +84,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

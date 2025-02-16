@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Team;
 use App\Models\User;
 use App\Models\Kegiatan;
-use App\Models\Team;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\RolePermissionSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -46,8 +47,8 @@ class DatabaseSeeder extends Seeder
         );
 
         $users->assignRole('admin');
-        $users3->assignRole('admin');
         $users2->assignRole('peserta');
+        $users3->assignRole('admin');
 
         User::create(
             [
@@ -55,31 +56,30 @@ class DatabaseSeeder extends Seeder
                 'email' => 'septa@gmail.com',
                 'password' => bcrypt('123'),
             ]
-            )->assignRole('peserta');
+        )->assignRole('peserta');
         User::create(
             [
                 'name' => 'jacky',
                 'email' => 'jacky@gmail.com',
                 'password' => bcrypt('123'),
             ]
-            )->assignRole('peserta');
+        )->assignRole('peserta');
         User::create(
             [
                 'name' => 'berry',
                 'email' => 'berry@gmail.com',
                 'password' => bcrypt('123'),
             ]
-            )->assignRole('mentor');
+        )->assignRole('mentor');
         User::create(
             [
                 'name' => 'rafi',
                 'email' => 'rafi@gmail.com',
                 'password' => bcrypt('123'),
             ]
-            )->assignRole('mentor');
+        )->assignRole('mentor');
 
         Kegiatan::factory(2)->create();
         Team::factory(2)->create();
     }
-
 }

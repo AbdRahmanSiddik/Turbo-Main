@@ -7,7 +7,7 @@
             <div class="text-2xl font-medium">Sign In</div>
             <div class="mt-2.5 text-slate-600">
                 Don't have an account?
-                <a class="font-medium text-primary" href="#">
+                <a class="font-medium text-primary" href="{{ route('register') }}">
                     Sign Up
                 </a>
             </div>
@@ -17,10 +17,9 @@
                     <i data-tw-merge="" data-lucide="lightbulb" class="mr-2 h-7 w-7 fill-primary/10 stroke-[0.8]"></i>
                 </div>
                 <div class="ml-1 mr-8">
-                    Welcome to <span class="font-medium">Tailwise</span>
-                    demo! Simply click
-                    <span class="font-medium">Sign In</span> to explore
-                    and access our documentation.
+                    Selamat datang di  <span class="font-medium">Turbo</span>! Cukup klik
+                    <span class="font-medium">Masuk</span> untuk menjelajahi
+                    dan mengikuti komunitas kami.
                 </div>
                 <button data-tw-merge="" data-tw-dismiss="alert" type="button" aria-label="Close"
                     class="py-2 px-3 absolute right-0 my-auto mr-2 btn-close text-primary"><i data-tw-merge=""

@@ -14,9 +14,13 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::with('permissions')->get();
-        $permissions = Permission::all();
-        return view('admin.users_management.roles.page', compact('roles', 'permissions'));
+        $datas = [
+            'roles' => Role::with('permissions')->get(),
+            'permissions' => Permission::all(), // Ambil semua permissions
+            'title' => 'Roles', // Judul halaman roles
+        ];
+
+        return view('admin.users_management.roles.page', $datas);
     }
 
     public function store(Request $request)

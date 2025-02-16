@@ -24,8 +24,7 @@ class Kegiatan extends Model
     }
 
     protected $casts = [
-    'tanggal_mulai' => 'datetime',
-    'tanggal_akhir' => 'datetime',
-];
-
+        'tanggal_mulai' => 'datetime',
+        'tanggal_akhir' => 'datetime',
+    ];
 }
