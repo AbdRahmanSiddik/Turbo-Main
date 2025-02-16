@@ -267,9 +267,9 @@
         </div>
         <div class="footer__bottom">
           <p>
-            Copyright &copy;2024 <a href="javascript:void(0)" class="intellicon">Intellicon</a>. Designed By <a
-              href="https://themeforest.net/user/pixelaxis" class="theme">Pixelaxis</a>
-          </p>
+            Copyright &copy;{{ date('Y') }} Designed By <a
+              href="{{ route('home') }}" class="theme">Turbo-Main Community</a>
+            </p>
         </div>
       </div>
     </div>
