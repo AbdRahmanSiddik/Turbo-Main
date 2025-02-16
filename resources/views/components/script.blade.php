@@ -1,3 +1,5 @@
+@include('components.alert')
+
 <!-- Script Vendors -->
 <script src="{{ asset('assets') }}/dist/js/vendors/dom.js"></script>
 <script src="{{ asset('assets') }}/dist/js/vendors/tailwind-merge.js"></script>
@@ -43,5 +45,9 @@
 
 <script src="{{ asset('assets') }}/script.js"></script>
 <script src="{{ asset('assets') }}/team/script.js"></script>
+
+
+<script src="{{ asset('assets') }}/dist/js/pages/notification.js"></script>
+
 
 

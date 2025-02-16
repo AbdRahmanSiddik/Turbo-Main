@@ -105,6 +105,8 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/foto/{user}', [ProfileController::class, 'foto'])->name('foto.update');
+    Route::get('/profile/password', [ProfileController::class, 'index'])->name('profile.password');
+    Route::post('/profile/password/{user}', [ProfileController::class, 'changePassword'])->name('change.password');
 });
 
 // end nanda

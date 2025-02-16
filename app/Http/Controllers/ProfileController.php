@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -102,6 +103,30 @@ class ProfileController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Foto profile berhasil diupdate');
+    }
+
+    public function changePassword(Request $request, User $user)
+    {
+        $request->validate([
+            'current' => 'required',
+            'password' => 'required|string|min:8|confirmed',
+        ], [
+            'current.required' => 'Password saat ini wajib diisi.',
+            'password.required' => 'Password baru wajib diisi.',
+            'password.string' => 'Password baru harus berupa teks.',
+            'password.min' => 'Password baru minimal 8 karakter.',
+            'password.confirmed' => 'Konfirmasi password tidak cocok.',
+        ]);
+
+        if (!Hash::check($request->current, $user->password)) {
+            return redirect()->back()->withErrors(['current' => 'Password saat ini tidak sesuai.']);
+        }
+
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->back()->with('success', 'Password berhasil diubah');
     }
 
     public function destroy(Profile $profile)
