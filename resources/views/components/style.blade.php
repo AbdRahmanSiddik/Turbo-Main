@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/vendors/highlight.css">
 <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/vendors/dropzone.css">
 <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/vendors/tiny-slider.css">
+<link rel="stylesheet" href="{{ asset('assets') }}/dist/css/vendors/tom-select.css">
 
 <!-- Style Themes -->
 <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/themes/razor.css">

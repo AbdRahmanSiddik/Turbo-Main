@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('mentor_id');
             $table->text('deskripsi');
             $table->string('avatar')->nullable();
-            $table->foreign('mentor_id')->references('id')->on('users');
+            $table->foreign('mentor_id')->references('id')->on('users')->nullOnDelete();
             $table->timestamps();
         });
     }

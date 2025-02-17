@@ -42,7 +42,7 @@ class User extends Authenticatable
 
     public function team()
     {
-        return $this->hasOne(Team::class, 'mentor_id', 'id');
+        return $this->hasMany(Team::class, 'mentor_id', 'id');
     }
 
     public function profile()

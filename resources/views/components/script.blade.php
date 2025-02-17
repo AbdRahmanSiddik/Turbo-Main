@@ -3,6 +3,7 @@
 <!-- Script Vendors -->
 <script src="{{ asset('assets') }}/dist/js/vendors/dom.js"></script>
 <script src="{{ asset('assets') }}/dist/js/vendors/tailwind-merge.js"></script>
+<script src="{{ asset('assets') }}/dist/js/vendors/tom-select.js"></script>
 <script src="{{ asset('assets') }}/dist/js/vendors/tab.js"></script>
 <script src="{{ asset('assets') }}/dist/js/vendors/lucide.js"></script>
 <script src="{{ asset('assets') }}/dist/js/vendors/popper.js"></script>
@@ -22,6 +23,7 @@
 
 <!-- Script Base -->
 <script src="{{ asset('assets') }}/dist/js/components/base/theme-color.js"></script>
+<script src="{{ asset('assets') }}/dist/js/components/base/tom-select.js"></script>
 <script src="{{ asset('assets') }}/dist/js/components/base/lucide.js"></script>
 <script src="{{ asset('assets') }}/dist/js/components/base/tippy.js"></script>
 <script src="{{ asset('assets') }}/dist/js/components/base/highlight.js"></script>

@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\UsersManagement;
 use App\Http\Controllers\RolePermissionController;
+use App\Http\Controllers\UserController;
 
 // start nanda
 Route::middleware('guest')->group(function () {
@@ -110,6 +111,12 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
     Route::post('/foto/{user}', [ProfileController::class, 'foto'])->name('foto.update');
     Route::get('/profile/password', [ProfileController::class, 'index'])->name('profile.password');
     Route::post('/profile/password/{user}', [ProfileController::class, 'changePassword'])->name('change.password');
+
+    // user
+    Route::get('/user/{role}', [UserController::class, 'index'])->name('view.user')->middleware('permission:view user');
+    Route::post('/user/create', [UserController::class, 'create'])->name('user.create')->middleware('permission:create user');
+    Route::delete('/user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('permission:delete user');
+    Route::post('/user/update/{user}', [UserController::class, 'update'])->name('user.update')->middleware('permission:update user');
 
     // septa start
     Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran')->middleware('permission:view pendaftaran');

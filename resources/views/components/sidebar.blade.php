@@ -123,12 +123,31 @@
         </li>
       @endcan
 
-      {{-- <li>
-        <a href="javascript:void(0);" class="side-menu__link">
-          <i data-tw-merge="" data-lucide="user-plus" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-          <div class="side-menu__link__title">Add User</div>
-        </a>
-      </li> --}}
+      @can ('view user')
+        <li>
+          <a href="javascript:;" class="side-menu__link ">
+              <i data-tw-merge="" data-lucide="user-plus" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+              <div class="side-menu__link__title">User</div>
+              <i data-tw-merge="" data-lucide="chevron-down" class="stroke-[1] w-5 h-5 side-menu__link__chevron"></i>
+          </a>
+          <!-- BEGIN: Second Child -->
+          <ul class="hidden">
+              @foreach (\Spatie\Permission\Models\Role::get() as $role)
+                  <li>
+                      <a href="{{ route('view.user', $role->id) }}" class="side-menu__link ">
+                          <i data-tw-merge="" data-lucide="layout-panel-top" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                          <div class="side-menu__link__title">
+                              {{ $role->name }}
+                          </div>
+                      </a>
+                      <!-- BEGIN: Third Child -->
+                      <!-- END: Third Child -->
+                  </li>
+              @endforeach
+          </ul>
+          <!-- END: Second Child -->
+      </li>
+      @endcan
 
       <li class="side-menu__divider">
         AUTHENTICATIONS

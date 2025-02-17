@@ -81,7 +81,7 @@
                                         </td>
                                         <td
                                             class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                                            <div class="whitespace-nowrap">{{ $team->mentor->name }}</div>
+                                            <div class="whitespace-nowrap">{{ $team->mentor->name ?? '' }}</div>
                                         </td>
                                         <td data-tw-merge=""
                                             class="px-5 border-b dark:border-darkmode-300 relative border-dashed py-4 dark:bg-darkmode-600">
@@ -107,7 +107,7 @@
                                                                 href="#" data-avatar="{{ $team->avatar }}"
                                                                 data-name="{{ $team->nama_team }}"
                                                                 data-token="{{ $team->token_team }}"
-                                                                data-mentor="{{ $team->mentor->name }}"
+                                                                data-mentor="{{ $team->mentor->name ?? '' }}"
                                                                 data-deskripsi="{{ $team->deskripsi }}"
                                                                 class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"><i
                                                                     data-tw-merge="" data-lucide="check-square"
