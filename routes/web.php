@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\UsersManagement;
 use App\Http\Controllers\RolePermissionController;
+use App\Http\Controllers\TeamListController;
 use App\Http\Controllers\UserController;
 
 // start nanda
@@ -117,6 +118,9 @@ Route::middleware(['auth', 'role_permission'])->group(function () {
     Route::post('/user/create', [UserController::class, 'create'])->name('user.create')->middleware('permission:create user');
     Route::delete('/user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('permission:delete user');
     Route::post('/user/update/{user}', [UserController::class, 'update'])->name('user.update')->middleware('permission:update user');
+
+    // team list for mentor
+    Route::get('team/list/{kegiatan}', [TeamListController::class, 'index'])->name('team.list')->middleware('permission:view team_list');
 
     // septa start
     Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran')->middleware('permission:view pendaftaran');

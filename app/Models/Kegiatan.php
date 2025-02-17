@@ -27,4 +27,14 @@ class Kegiatan extends Model
         'tanggal_mulai' => 'datetime',
         'tanggal_akhir' => 'datetime',
     ];
+
+    public function team()
+    {
+        return $this->belongsToMany(Team::class, 'pendaftarans', 'kegiatan_id', 'team_id', 'id_kegiatan', 'id_team');
+    }
+
+    public function peserta()
+    {
+        return $this->belongsToMany(User::class, 'pendaftarans', 'kegiatan_id', 'peserta_id', 'id_kegiatan', 'id');
+    }
 }

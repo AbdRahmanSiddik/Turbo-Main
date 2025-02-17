@@ -98,6 +98,31 @@
           <!-- END: Second Child -->
       </li>
       @endcan
+      @can ('view team_list')
+        <li>
+          <a href="javascript:;" class="side-menu__link ">
+              <i data-tw-merge="" data-lucide="snail" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+              <div class="side-menu__link__title">List Team</div>
+              <i data-tw-merge="" data-lucide="chevron-down" class="stroke-[1] w-5 h-5 side-menu__link__chevron"></i>
+          </a>
+          <!-- BEGIN: Second Child -->
+          <ul class="hidden">
+              @foreach (\App\Models\Kegiatan::get() as $item)
+                  <li>
+                      <a href="{{ route('team.list', $item->token_kegiatan) }}" class="side-menu__link ">
+                          <i data-tw-merge="" data-lucide="layout-panel-top" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                          <div class="side-menu__link__title">
+                              {{ $item->nama_kegiatan }}
+                          </div>
+                      </a>
+                      <!-- BEGIN: Third Child -->
+                      <!-- END: Third Child -->
+                  </li>
+              @endforeach
+          </ul>
+          <!-- END: Second Child -->
+      </li>
+      @endcan
 
       @canany(['view roles', 'view permissions'])
         <li class="side-menu__divider">
