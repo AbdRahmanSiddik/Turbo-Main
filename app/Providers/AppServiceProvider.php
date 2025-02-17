@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Auth\Events\Login;
+use App\Listeners\UpdateLastLogin;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 

@@ -13,9 +13,7 @@ class DashboardController extends Controller
         $datas = [
             'title' => 'Dashboard',
             'kegiatans' => Kegiatan::get(),
-            'peserta_kegiatan' => Kegiatan::whereHas('pendaftaran', function ($query) {
-                $query->where('peserta_id', auth()->user()->id);
-            })->get(),
+            'peserta_kegiatan' => auth()->user()->pendaftarans()->with(['kegiatan', 'team'])->get(),
         ];
 
         return view('admin.dashboard.dashboard-view', $datas);

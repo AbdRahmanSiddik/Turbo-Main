@@ -50,8 +50,20 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class, 'user_id', 'id');
     }
 
-    public function pendaftaran()
+    public function pendaftarans()
     {
-        return $this->belongsToMany(Kegiatan::class, 'pendaftarans', 'peserta_id', 'kegiatan_id', 'id', 'id_kegiatan', 'kegiatans');
+        return $this->hasMany(Pendaftaran::class, 'peserta_id');
+    }
+
+    public function kegiatans()
+    {
+        return $this->hasManyThrough(
+            Kegiatan::class,
+            Pendaftaran::class,
+            'peserta_id', // Foreign key di tabel pendaftaran
+            'id_kegiatan', // Foreign key di tabel kegiatan
+            'id', // Primary key di tabel users
+            'kegiatan_id' // Foreign key di tabel pendaftaran
+        );
     }
 }
