@@ -68,7 +68,7 @@ class UserController extends Controller
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('img/profile'), $filename);
+            $file->move('img/profile', $filename);
             $profile->foto = $filename;
         }
 
@@ -124,7 +124,7 @@ class UserController extends Controller
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('img/profile'), $filename);
+            $file->move('img/profile', $filename);
             $profile->foto = $filename;
         }
 

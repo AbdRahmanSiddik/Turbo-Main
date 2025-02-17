@@ -92,11 +92,11 @@ class ProfileController extends Controller
 
         // Delete the old profile picture if it exists
         $oldImage = $user->profile->foto;
-        if ($oldImage && file_exists(public_path('img/profile/' . $oldImage))) {
-            File::delete(public_path('img/profile/' . $oldImage));
+        if ($oldImage && file_exists('img/profile/' . $oldImage)) {
+            File::delete('img/profile/' . $oldImage);
         }
         $imageName = time().'.'.$request->foto->extension();
-        $request->foto->move(public_path('img/profile'), $imageName);
+        $request->foto->move('img/profile', $imageName);
 
         Profile::where('user_id', $user->id)->update([
             'foto' => $imageName,

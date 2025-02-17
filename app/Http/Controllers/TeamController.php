@@ -36,7 +36,7 @@ class TeamController extends Controller
 
         $file = $request->file('avatar');
         $filename = time() . '_' . Str::uuid() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('img/team'), $filename);
+        $file->move('img/team', $filename);
         $validated['avatar'] = $filename;
 
         Team::create($validated);
@@ -48,7 +48,7 @@ class TeamController extends Controller
     {
         $team = Team::where('token_team', $token)->first();
         if ($team) {
-            $avatarPath = public_path('img/team/' . $team->avatar);
+            $avatarPath = 'img/team/' . $team->avatar;
             if (file_exists($avatarPath)) {
                 unlink($avatarPath);
             }
@@ -71,10 +71,10 @@ class TeamController extends Controller
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $filename = time() . '_' . Str::uuid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('img/team'), $filename);
+            $file->move('img/team', $filename);
             $validated['avatar'] = $filename;
 
-            $avatarPath = public_path('img/team/' . $team->avatar);
+            $avatarPath = 'img/team/' . $team->avatar;
             if (file_exists($avatarPath)) {
                 unlink($avatarPath);
             }

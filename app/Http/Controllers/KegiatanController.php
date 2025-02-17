@@ -81,8 +81,8 @@ class KegiatanController extends Controller
         // Periksa apakah ada file yang diunggah
         if ($request->hasFile('thumbnail')) {
             // Hapus file lama jika ada
-            if ($kegiatan->thumbnail && file_exists(public_path('img/kegiatan/' . $kegiatan->thumbnail))) {
-                unlink(public_path('img/kegiatan/' . $kegiatan->thumbnail));
+            if ($kegiatan->thumbnail && file_exists('img/kegiatan/' . $kegiatan->thumbnail)) {
+                unlink('img/kegiatan/' . $kegiatan->thumbnail);
             }
 
             $token = uniqid();
@@ -90,7 +90,7 @@ class KegiatanController extends Controller
             // Simpan file baru
             $file = $request->file('thumbnail');
             $nama_file = $token . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('img/kegiatan'), $nama_file);
+            $file->move('img/kegiatan', $nama_file);
 
             // Simpan nama file ke database
             $kegiatan->thumbnail = $nama_file;
@@ -122,8 +122,8 @@ class KegiatanController extends Controller
     public function destroy(Kegiatan $kegiatan)
     {
         // Hapus file thumbnail jika ada
-        if ($kegiatan->thumbnail && file_exists(public_path('img/kegiatan/' . $kegiatan->thumbnail))) {
-            unlink(public_path('img/kegiatan/' . $kegiatan->thumbnail));
+        if ($kegiatan->thumbnail && file_exists('img/kegiatan/' . $kegiatan->thumbnail)) {
+            unlink('img/kegiatan/' . $kegiatan->thumbnail);
         }
 
         $kegiatan->delete();
