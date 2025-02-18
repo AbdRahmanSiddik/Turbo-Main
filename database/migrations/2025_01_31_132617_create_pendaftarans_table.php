@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('token_pendaftaran', 16);
             $table->foreignId('peserta_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('kegiatan_id')->constrained('kegiatans', 'id_kegiatan')->cascadeOnUpdate();
-            $table->foreignId('team_id')->nullable()->constrained('teams', 'id_team')->cascadeOnUpdate();
+            $table->enum('status', [
+                'pending', 'diterima', 'hadir', 'alpa'
+            ])->default('pending');
             $table->timestamps();
         });
     }

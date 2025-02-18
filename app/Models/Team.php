@@ -18,7 +18,7 @@ class Team extends Model
 
     public function peserta()
     {
-        return $this->belongsToMany(User::class, 'pendaftarans', 'team_id', 'peserta_id', 'id_team', 'id');
+        return $this->hasMany(Profile::class, 'team_id', 'id_team');
     }
 
     public function kegiatan()

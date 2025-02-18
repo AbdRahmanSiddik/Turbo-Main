@@ -17,13 +17,13 @@
 @section('content')
     @foreach (Spatie\Permission\Models\Role::all() as $role)
         @if (auth()->user()->getRoleNames()->contains($role->name))
-            @foreach (auth()->user()->getRoleNames() as $roleName)
+            {{-- @foreach (auth()->user()->getRoleNames() as $roleName)
                 @if (view()->exists('components/dashboard/' . $roleName))
                     @include('components/dashboard/' . $roleName)
                 @else
                     <p>Belum diatur</p>
                 @endif
-            @endforeach
+            @endforeach --}}
         @endif
     @endforeach
 @endsection

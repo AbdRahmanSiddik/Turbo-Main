@@ -254,17 +254,17 @@
                     {{-- @dd($role) --}}
                     @if ($title == 'Mentor')
                       <td class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                        @forelse ($value->team as $get)
+                        @if ($value->team)
                           <div class="flex items-center justify-center text-success">
                             <i data-lucide="database" class="h-3.5 w-3.5 stroke-[1.7]"></i>
-                            <div class="ml-1.5 whitespace-nowrap">{{ $get->nama_team }}</div>
+                            <div class="ml-1.5 whitespace-nowrap">{{ $value->team->nama_team }}</div>
                           </div>
-                        @empty
+                        @else
                           <div class="flex items-center justify-center text-danger">
                             <i data-lucide="database" class="h-3.5 w-3.5 stroke-[1.7]"></i>
                             <div class="ml-1.5 whitespace-nowrap">Belum Diatur</div>
                           </div>
-                        @endforelse
+                        @endif
                       </td>
                     @endif
                     <td data-tw-merge=""

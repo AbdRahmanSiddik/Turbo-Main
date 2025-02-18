@@ -11,6 +11,10 @@ class VerificationController extends Controller
 {
     public function show()
     {
+        if(auth()->user()->email_verified_at != null){
+            return redirect()->route('dashboard')->with('success', 'Akun Anda telah diverifikasi.');
+        }
+
         return view('auth.verify');
     }
 

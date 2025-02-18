@@ -72,4 +72,12 @@ class PendaftaranController extends Controller
         Pendaftaran::where('token_pendaftaran', $pendaftaran->token_pendaftaran)->delete();
         return redirect()->back()->with('success', 'Pendaftar Berhasil Dihapus');
     }
+
+    public function diterima(Request $request, Pendaftaran $pendaftaran)
+    {
+        $status = $request->status;
+        $pendaftaran->update(['status' => $status]);
+
+        return redirect()->back()->with('success', 'Status berhasil diupdate');
+    }
 }

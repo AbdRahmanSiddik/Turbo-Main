@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('alamat')->nullable();
             $table->string('telepon')->nullable();
             $table->string('foto')->default('default.png');
+            $table->foreignId('team_id')->nullable()->constrained('teams', 'id_team')->nullOnDelete();
             $table->timestamps();
         });
     }

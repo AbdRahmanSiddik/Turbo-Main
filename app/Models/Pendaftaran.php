@@ -25,9 +25,4 @@ class Pendaftaran extends Model
     {
         return $this->belongsTo(Kegiatan::class, 'kegiatan_id', 'id_kegiatan');
     }
-
-    public function team()
-    {
-        return $this->belongsTo(Team::class, 'team_id', 'id_team');
-    }
 }

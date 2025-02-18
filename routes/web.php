@@ -129,13 +129,18 @@ Route::middleware(['verified','auth', 'role_permission'])->group(function () {
     Route::post('/user/update/{user}', [UserController::class, 'update'])->name('user.update')->middleware('permission:update user');
 
     // team list for mentor
-    Route::get('team/list/{kegiatan}', [TeamListController::class, 'index'])->name('team.list')->middleware('permission:view team_list');
+    Route::get('team/list', [TeamListController::class, 'index'])->name('team.list')->middleware('permission:view team_list');
+    Route::post('/detail/list/{user}', [TeamListController::class, 'update'])->name('update.tim')->middleware('permission:add team_peserta');
+    Route::get('team/list/{kegiatan}', [TeamListController::class, 'indexMentor'])->name('team.list.mentor')->middleware('permission:view list-team-saya');
+    Route::get('team/saya', [TeamListController::class, 'myindex'])->name('team.saya')->middleware('permission:view team-saya');
+
+    // status pendaftaran
+    Route::post('status/{pendaftaran}', [PendaftaranController::class, 'diterima'])->name('status.pendaftaran')->middleware('permission:update status-pendaftaran');
 
     // septa start
     Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran')->middleware('permission:view pendaftaran');
     Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('kegiatan.daftar')->middleware('permission:create pendaftaran');
     Route::get('/detail/pendaftaran/{kegiatan}', [PendaftaranController::class, 'detail'])->name('detail.pendaftaran')->middleware('permission:view list-pendaftaran');
-    Route::post('/detail/pendaftaran/{id}', [PendaftaranController::class, 'update'])->name('update.tim')->middleware('permission:add team_peserta');
     Route::get('/pendaftaran/hapus/{pendaftaran}', [PendaftaranController::class, 'destroy'])->name('delete.pendaftaran')->middleware('permission:delete pendaftaran');
     // septa end
 });

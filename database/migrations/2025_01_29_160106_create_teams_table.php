@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id('id_team');
             $table->string('token_team', 16);
             $table->string('nama_team');
-            $table->unsignedBigInteger('mentor_id');
+            $table->foreignId('mentor_id')->nullable()->constrained('users', 'id')->nullOnDelete();
             $table->text('deskripsi');
             $table->string('avatar')->nullable();
-            $table->foreign('mentor_id')->references('id')->on('users')->nullOnDelete();
+            // $table->foreign('mentor_id')->references('id')->on('users')->nullOnDelete();
             $table->timestamps();
         });
     }

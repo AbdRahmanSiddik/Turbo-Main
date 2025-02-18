@@ -49,6 +49,53 @@
         </li>
       @endcan
 
+
+
+      @if (auth()->user()->team)
+      <li class="side-menu__divider">
+        MENTORING
+      </li>
+        @can('view team-saya')
+        <li>
+          <a href="{{ route('team.saya') }}" class="side-menu__link">
+            <i data-tw-merge="" data-lucide="calendar" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+            <div class="side-menu__link__title">Team Saya - {{ auth()->user()->team->nama_team }}</div>
+            {{-- <div class="side-menu__link__badge">
+              {{ total_kegiatan() }}
+            </div> --}}
+          </a>
+        </li>
+        @endcan
+
+        @can ('view list-team-saya')
+        <li>
+          <a href="javascript:;" class="side-menu__link ">
+              <i data-tw-merge="" data-lucide="mouse-pointer-square" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+              <div class="side-menu__link__title">List Team Saya</div>
+              <i data-tw-merge="" data-lucide="chevron-down" class="stroke-[1] w-5 h-5 side-menu__link__chevron"></i>
+          </a>
+          <!-- BEGIN: Second Child -->
+          <ul class="hidden">
+              @foreach (\App\Models\Kegiatan::get() as $item)
+                  @if ($item->status != 'selesai')
+                      <li>
+                          <a href="{{ route('team.list.mentor', $item->token_kegiatan) }}" class="side-menu__link ">
+                              <i data-tw-merge="" data-lucide="layout-panel-top" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                              <div class="side-menu__link__title">
+                                  {{ $item->nama_kegiatan }}
+                              </div>
+                          </a>
+                          <!-- BEGIN: Third Child -->
+                          <!-- END: Third Child -->
+                      </li>
+                  @endif
+              @endforeach
+          </ul>
+          <!-- END: Second Child -->
+      </li>
+      @endcan
+      @endif
+
       @can('view kegiatan')
       <li class="side-menu__divider">
         DATA MASTER
@@ -77,50 +124,37 @@
         <li>
           <a href="javascript:;" class="side-menu__link ">
               <i data-tw-merge="" data-lucide="table2" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-              <div class="side-menu__link__title">List Pendaftaran</div>
+              <div class="side-menu__link__title">List Pendaftar</div>
               <i data-tw-merge="" data-lucide="chevron-down" class="stroke-[1] w-5 h-5 side-menu__link__chevron"></i>
           </a>
           <!-- BEGIN: Second Child -->
           <ul class="hidden">
               @foreach (\App\Models\Kegiatan::get() as $item)
-                  <li>
-                      <a href="{{ route('detail.pendaftaran', $item->token_kegiatan) }}" class="side-menu__link ">
-                          <i data-tw-merge="" data-lucide="layout-panel-top" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                          <div class="side-menu__link__title">
-                              {{ $item->nama_kegiatan }}
-                          </div>
-                      </a>
-                      <!-- BEGIN: Third Child -->
-                      <!-- END: Third Child -->
-                  </li>
+                  @if ($item->status != 'selesai')
+                    <li>
+                        <a href="{{ route('detail.pendaftaran', $item->token_kegiatan) }}" class="side-menu__link ">
+                            <i data-tw-merge="" data-lucide="layout-panel-top" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+                            <div class="side-menu__link__title">
+                                {{ $item->nama_kegiatan }}
+                            </div>
+                        </a>
+                        <!-- BEGIN: Third Child -->
+                        <!-- END: Third Child -->
+                    </li>
+                  @endif
               @endforeach
           </ul>
           <!-- END: Second Child -->
       </li>
       @endcan
       @can ('view team_list')
-        <li>
-          <a href="javascript:;" class="side-menu__link ">
-              <i data-tw-merge="" data-lucide="snail" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-              <div class="side-menu__link__title">List Team</div>
-              <i data-tw-merge="" data-lucide="chevron-down" class="stroke-[1] w-5 h-5 side-menu__link__chevron"></i>
-          </a>
-          <!-- BEGIN: Second Child -->
-          <ul class="hidden">
-              @foreach (\App\Models\Kegiatan::get() as $item)
-                  <li>
-                      <a href="{{ route('team.list', $item->token_kegiatan) }}" class="side-menu__link ">
-                          <i data-tw-merge="" data-lucide="layout-panel-top" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                          <div class="side-menu__link__title">
-                              {{ $item->nama_kegiatan }}
-                          </div>
-                      </a>
-                      <!-- BEGIN: Third Child -->
-                      <!-- END: Third Child -->
-                  </li>
-              @endforeach
-          </ul>
-          <!-- END: Second Child -->
+      <li>
+        <a href="{{ route('team.list') }}" class="side-menu__link">
+          <i data-tw-merge="" data-lucide="podcast" class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
+          <div class="side-menu__link__title">Team Peserta</div>
+          {{-- <div class="side-menu__link__badge">
+          </div> --}}
+        </a>
       </li>
       @endcan
 
