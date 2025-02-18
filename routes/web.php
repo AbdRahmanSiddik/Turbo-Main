@@ -15,6 +15,7 @@ use App\Http\Controllers\UsersManagement;
 use App\Http\Controllers\RolePermissionController;
 use App\Http\Controllers\TeamListController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VerificationController;
 
 // start nanda
 Route::middleware('guest')->group(function () {
@@ -36,7 +37,15 @@ Route::middleware('guest')->group(function () {
     // End Rofi
 });
 
-Route::middleware(['auth', 'role_permission'])->group(function () {
+Route::middleware('auth')->group(function () {
+    Route::controller(VerificationController::class)->group(function () {
+        Route::get('/email/verify', 'show')->name('verification.notice');
+        Route::post('/email/verify/otp', 'verifyOtp')->name('verification.verifyOtp');
+        Route::get('/email/resend', 'resend')->name('verification.resend');
+    });
+});
+
+Route::middleware(['verified','auth', 'role_permission'])->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard')

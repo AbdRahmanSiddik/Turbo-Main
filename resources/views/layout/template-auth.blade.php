@@ -11,10 +11,8 @@
     content="admin template, Tailwise Admin Template, dashboard template, flat admin template, responsive admin template, web app">
   <meta name="author" content="LEFT4CODE">
   <link rel="shortcut icon" href="{{ asset('landing/assets/img/logo/fav2.png') }}" type="image/x-icon">
-  <title>Tailwise - Admin Dashboard Template</title>
-  <!-- BEGIN: CSS Assets-->
-  <link rel="stylesheet" href="{{ asset('') }}assets/dist/css/vendors/tippy.css">
-  <link rel="stylesheet" href="{{ asset('') }}assets/dist/css/app.css"> <!-- END: CSS Assets-->
+  <title>Turbo Authentication</title>
+  @include('components.style')
 </head>
 <!-- END: Head -->
 
@@ -448,15 +446,7 @@
     </div>
   </div>
   <!-- BEGIN: Vendor JS Assets-->
-  <script src="{{ asset('') }}assets/dist/js/vendors/dom.js"></script>
-  <script src="{{ asset('') }}assets/dist/js/vendors/tailwind-merge.js"></script>
-  <script src="{{ asset('') }}assets/dist/js/vendors/lucide.js"></script>
-  <script src="{{ asset('') }}assets/dist/js/vendors/alert.js"></script>
-  <script src="{{ asset('') }}assets/dist/js/vendors/tippy.js"></script>
-  <script src="{{ asset('') }}assets/dist/js/vendors/modal.js"></script>
-  <script src="{{ asset('') }}assets/dist/js/components/base/theme-color.js"></script>
-  <script src="{{ asset('') }}assets/dist/js/components/base/lucide.js"></script>
-  <script src="{{ asset('') }}assets/dist/js/components/base/tippy.js"></script> <!-- END: Vendor JS Assets-->
+@include('components.script')
   <!-- BEGIN: Pages, layouts, components JS Assets-->
   <!-- END: Pages, layouts, components JS Assets-->
 </body>

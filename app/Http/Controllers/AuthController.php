@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendOtp;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Str;
@@ -61,10 +63,12 @@ class AuthController extends Controller
             ]
         );
 
+        $otp = mt_rand(000000, 999999);
         $user = \App\Models\User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'otp' => $otp
         ]);
 
         // Assign default role to the user
@@ -73,6 +77,8 @@ class AuthController extends Controller
             'user_id' => $user->id,
             'token_user' => Str::random(16),
         ]);
+
+        Mail::to($request->email)->send(new SendOtp($user, $otp));
 
         Auth::login($user);
 
