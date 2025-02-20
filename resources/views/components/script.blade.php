@@ -52,4 +52,10 @@
 <script src="{{ asset('assets') }}/dist/js/pages/notification.js"></script>
 
 
+<script src="{{ asset('assets/vendor/datatables/datatables.js') }}"></script>
+<script>
+    let table = new DataTable('#myTable');
+</script>
+
+
 

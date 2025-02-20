@@ -249,7 +249,7 @@
             <select id="mentor-update" data-tw-merge aria-label="Default select example" name="mentor_id"
               class="disabled:bg-slate-100 disabled:cursor-not-allowed disabled:dark:bg-darkmode-800/50 [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md pb-2 px-3 pr-8 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 group-[.form-inline]:flex-1">
               @foreach ($mentors as $mentor)
-                <option value="{{ $mentor->id }}" {{ $mentor->team ? 'disabled' : '' }}>{{ $mentor->name }}</option>
+                <option value="{{ $mentor->id }}" >{{ $mentor->name }}</option>
               @endforeach
             </select>
           </div>

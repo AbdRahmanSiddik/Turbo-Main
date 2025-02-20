@@ -21,7 +21,7 @@
         <div class="text-base font-medium">Nama Kegiatan: {{ $kegiatan->nama_kegiatan }} </div>
       </div>
       <div class="box box--stacked mt-3.5 p-5">
-        <table data-tw-merge class="w-full text-left">
+        <table data-tw-merge class="w-full text-left" id="myTable">
           <thead data-tw-merge class="bg-dark text-white dark:bg-black/30">
             <tr data-tw-merge class="">
               <th data-tw-merge
