@@ -52,7 +52,7 @@
               </div>
               <div class="absolute inset-x-0 top-0 mx-auto mt-36 h-32 w-32">
                 <div class="box image-fit h-full w-full overflow-hidden rounded-full border-[6px] border-white">
-                  <img src="{{ asset('img/profile/'.(auth()->user()->profile->foto == 'default.png' ? '/10302971.png' : auth()->user()->profile->foto   )) }}" alt="Tailwise - Admin Dashboard Template">
+                  <img src="{{ asset('img/profile/' . ((auth()->user()->profile?->foto == 'default.png' || auth()->user()->profile == null) ? '10302971.png' : auth()->user()->profile->foto)) }}" alt="Tailwise - Admin Dashboard Template">
                 </div>
                 <div
                   class="box absolute bottom-0 right-0 mb-2.5 mr-2.5 h-5 w-5 rounded-full border-2 border-white bg-success">

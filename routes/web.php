@@ -23,19 +23,19 @@ Route::middleware('guest')->group(function () {
     Route::view('/register', 'auth.register')->name('register');
     Route::post('/register', [AuthController::class , 'register'])->name('register.action');
     Route::post('/login', [AuthController::class , 'login']);
+});
 
-    // Start Rofi
-    Route::controller(LandingController::class)->group(function () {
-            Route::get('/', 'home')->name('home');
-            Route::get('/tentangkami', 'tentangkami')->name('tentangkami');
-            Route::get('/kgiatan', 'kegiatan')->name('kegiatan');
-            Route::get('/servis', 'servis')->name('servis');
-            Route::get('/kontak', 'kontak')->name('kontak');
-            Route::post('/kontak/send', 'send')->name('contact.send');
-            Route::get('/faq', 'faq')->name('faq');
-        }
-        );
-    // End Rofi    });
+// Start Rofi
+Route::controller(LandingController::class)->group(function () {
+    Route::get('/', 'home')->name('home');
+    Route::get('/tentangkami', 'tentangkami')->name('tentangkami');
+    Route::get('/kgiatan', 'kegiatan')->name('kegiatan');
+    Route::get('/servis', 'servis')->name('servis');
+    Route::get('/kontak', 'kontak')->name('kontak');
+    Route::post('/kontak/send', 'send')->name('contact.send');
+    Route::get('/faq', 'faq')->name('faq');
+});
+// End Rofi
 
 Route::middleware('auth')->group(function () {
     Route::controller(VerificationController::class)->group(function () {
@@ -143,6 +143,5 @@ Route::middleware(['verified', 'auth', 'role_permission'])->group(function () {
     Route::get('/detail/pendaftaran/{kegiatan}', [PendaftaranController::class , 'detail'])->name('detail.pendaftaran')->middleware('permission:view list-pendaftaran');
     Route::get('/pendaftaran/hapus/{pendaftaran}', [PendaftaranController::class , 'destroy'])->name('delete.pendaftaran')->middleware('permission:delete pendaftaran');
 // septa end
-});
 });
  

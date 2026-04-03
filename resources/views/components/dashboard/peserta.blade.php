@@ -8,7 +8,7 @@
         <div class="mb-5 flex flex-col items-center gap-y-2 border-b border-dashed border-slate-300/70 pb-5 sm:flex-row">
           <div class="image-fit h-14 w-14 overflow-hidden rounded-full border-[3px] border-slate-200/70">
             <img
-              src="{{ asset('img/profile/' . (auth()->user()->profile?->foto == 'default.png' ? '10302971.png' : auth()->user()->profile?->foto)) }}"
+              src="{{ asset('img/profile/' . ((auth()->user()->profile?->foto == 'default.png' || auth()->user()->profile == null) ? '10302971.png' : auth()->user()->profile?->foto)) }}"
               alt="Tailwise - Admin Dashboard Template">
           </div>
           <div class="text-center sm:ml-4 sm:text-left">
@@ -34,7 +34,7 @@
           <div class="flex-1 border-dashed last:border-0 sm:border-r">
             <div class="text-slate-500">Anggota Team</div>
             <div class="mt-1 flex items-center justify-center">
-              <div class="text-base font-medium">{{ auth()->user()->profile->team?->nama_team ?? 'Team Belum diatur' }}
+              <div class="text-base font-medium">{{ auth()->user()->profile?->team?->nama_team ?? 'Team Belum diatur' }}
               </div>
             </div>
           </div>
@@ -42,9 +42,9 @@
             <div class="text-slate-500">Mentor</div>
             <div class="mt-1 flex items-center justify-center">
               <div class="text-base font-medium">
-                @if (auth()->user()->profile->team != null )
+                @if (auth()->user()->profile?->team != null )
                 <div class="text-center">
-                    <a data-tw-merge data-tw-toggle="modal" data-tw-target="#button-modal-preview" href="#" class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary">{{ ucfirst(auth()->user()->profile->team?->mentor->name) }}</a>
+                    <a data-tw-merge data-tw-toggle="modal" data-tw-target="#button-modal-preview" href="#" class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary">{{ ucfirst(auth()->user()->profile?->team?->mentor->name) }}</a>
                 </div>
                 <!-- END: Modal Toggle -->
                 <!-- BEGIN: Modal Content -->
@@ -56,12 +56,12 @@
                         <div class="p-5 text-center">
                             <div class="image-fit h-14 w-14 overflow-hidden rounded-full border-[3px] border-slate-200/70 items-center justify-center inline-flex">
                                 <img
-                                  src="{{ asset('img/profile/' . (auth()->user()->profile->team?->mentor->profile->foto == 'default.png' ? '10302971.png' : auth()->user()->profile->team?->mentor->profile->foto)) }}"
+                                  src="{{ asset('img/profile/' . ((auth()->user()->profile?->team?->mentor->profile?->foto == 'default.png' || auth()->user()->profile?->team?->mentor->profile == null) ? '10302971.png' : auth()->user()->profile?->team?->mentor->profile?->foto)) }}"
                                   alt="Tailwise - Admin Dashboard Template">
                               </div>
-                            <div class="mt-5 text-3xl">{{ ucfirst(auth()->user()->profile->team?->mentor->name) }}
+                            <div class="mt-5 text-3xl">{{ ucfirst(auth()->user()->profile?->team?->mentor->name) }}
                                 -
-                                {{ ucfirst(auth()->user()->profile->team?->mentor->profile->telepon) }}
+                                {{ ucfirst(auth()->user()->profile?->team?->mentor->profile?->telepon) }}
                             </div>
                             <div class="mt-2 text-slate-500">
                                 Hubungi mentor anda untuk dimasukkan ke dalam grub chat WhatsApp

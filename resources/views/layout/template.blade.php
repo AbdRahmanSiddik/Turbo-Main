@@ -171,6 +171,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="border-b border-dashed"></div>
                         <div class="px-8 pb-8 pt-6">
                             <div class="text-base font-medium">Color Schemes</div>
@@ -723,7 +724,7 @@
                                 <div data-tw-merge="" data-tw-placement="bottom-end" class="dropdown relative ml-5">
                                     <button data-tw-toggle="dropdown" aria-expanded="false"
                                         class="cursor-pointer image-fit h-[36px] w-[36px] overflow-hidden rounded-full border-[3px] border-slate-200/70"><img
-                                            src="{{ asset('img/profile/'.(auth()->user()->profile->foto == 'default.png' ? '/10302971.png' : auth()->user()->profile->foto   )) }}"
+                                            src="{{ asset('img/profile/' . ((auth()->user()->profile?->foto == 'default.png' || auth()->user()->profile == null) ? '10302971.png' : auth()->user()->profile->foto)) }}"
                                             alt="Turbo Main">
                                     </button>
                                     <div data-transition="" data-selector=".show"

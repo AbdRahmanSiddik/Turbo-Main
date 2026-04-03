@@ -76,7 +76,7 @@
                                             class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
                                             <div class="flex">
                                                 <div class="image-fit zoom-in h-9 w-9">
-                                                    <img src="{{ asset('img/kegiatan/' . $value->thumbnail) }}"
+                                                    <img src="{{ asset('img/kegiatan/' . $value->thumbnail) }}   "
                                                         alt="Product Image"
                                                         class="tooltip cursor-pointer rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]">
                                                 </div>

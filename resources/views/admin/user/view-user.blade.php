@@ -237,7 +237,7 @@
                     <td class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
                       <div class="flex">
                         <div class="image-fit zoom-in h-9 w-9">
-                          <img src="{{ asset('img/profile/' . ($value->profile->foto ?? '')) }}" alt="Product Image"
+                          <img src="{{ asset('img/profile/' . ($value->profile?->foto ?? '10302971.png')) }}" alt="Product Image"
                             class="tooltip cursor-pointer rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]">
                         </div>
                       </div>
@@ -249,7 +249,7 @@
                       <div class="whitespace-nowrap">{{ $value->email }}</div>
                     </td>
                     <td class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600">
-                      <div class="whitespace-nowrap">{{ $value->profile->telepon ?? '' }}</div>
+                      <div class="whitespace-nowrap">{{ $value->profile?->telepon ?? '' }}</div>
                     </td>
                     {{-- @dd($role) --}}
                     @if ($title == 'Mentor')
@@ -368,7 +368,7 @@
                                     <input type="file" name="profile_picture" id="profile_picture{{ $value->id }}" class="hidden"
                                       accept="image/*" onchange="previewMyImage(event, {{ $value->id }})">
                                     <label for="profile_picture{{ $value->id }}" class="cursor-pointer">
-                                      <img id="myPreview{{ $value->id }}" src="{{ asset('img/profile/'.($value->profile->foto ?? '')) }}"
+                                      <img id="myPreview{{ $value->id }}" src="{{ asset('img/profile/'.($value->profile?->foto ?? '10302971.png')) }}"
                                         alt="Profile Picture Preview"
                                         class="h-20 w-20 rounded-full border border-slate-200 shadow-sm">
                                     </label>
@@ -469,7 +469,7 @@
                                 </div>
                                 <div class="mt-3 w-full flex-1 xl:mt-0">
                                   <div class="flex flex-col items-center md:flex-row">
-                                    <input data-tw-merge="" type="number" name="telepon" placeholder="08123456789" value="{{ $value->profile->telepon ?? '' }}"
+                                    <input data-tw-merge="" type="number" name="telepon" placeholder="08123456789" value="{{ $value->profile?->telepon ?? '' }}"
                                       class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 datepicker">
                                   </div>
                                 </div>
@@ -492,7 +492,7 @@
                                   </div>
                                 </div>
                                 <div class="mt-3 w-full flex-1 xl:mt-0">
-                                  <input data-tw-merge="" type="text" placeholder="Jl. ..." name="alamat" value="{{ $value->profile->alamat ?? '' }}"
+                                  <input data-tw-merge="" type="text" placeholder="Jl. ..." name="alamat" value="{{ $value->profile?->alamat ?? '' }}"
                                     class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10">
                                 </div>
                               </div>
